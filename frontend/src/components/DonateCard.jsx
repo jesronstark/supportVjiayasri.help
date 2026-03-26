@@ -19,7 +19,7 @@ This your correct DETAILS I will help you...!!
 `;
 
 const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
-  const [amount, setAmount] = useState(1000);
+  const [amount, setAmount] = useState('');
 
   const upiLink = `upi://pay?pa=${UPI_ID}&pn=Donation&am=${amount}&cu=INR`;
 
@@ -36,7 +36,7 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
         <input
           type="number"
           className="custom-input"
-          placeholder="Other amount"
+          placeholder="Enter the amount to donate"
           value={amount}
           onChange={e => setAmount(e.target.value)}
           min={10}
