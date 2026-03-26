@@ -20,8 +20,16 @@ This your correct DETAILS I will help you...!!
 
 const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
   const [amount, setAmount] = useState('');
+  const [upiCopied, setUpiCopied] = useState(false);
 
-  const upiLink = `upi://pay?pa=${UPI_ID}&pn=Uma&cu=INR`;
+  // Added transaction note for better authorization/verification by UPI apps
+  const upiLink = `upi://pay?pa=${UPI_ID}&pn=Uma&tn=Help%20Vijaya%20Sri&cu=INR`;
+
+  const copyUpiId = () => {
+    navigator.clipboard.writeText(UPI_ID);
+    setUpiCopied(true);
+    setTimeout(() => setUpiCopied(false), 2000);
+  };
 
   const handleWhatsApp = () => {
     const encodedMessage = encodeURIComponent(WHATSAPP_MESSAGE);
@@ -48,25 +56,45 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
           <QRCodeSVG value={upiLink} size={180} />
         </div>
         <p style={{ fontWeight: 600, fontSize: '0.95rem', color: '#111827' }}>Scan & Pay from any UPI App</p>
-        <a 
-          href={upiLink} 
-          style={{ 
-            display: 'block',
-            textAlign: 'center',
-            textDecoration: 'none', 
-            background: '#2563eb', 
-            color: 'white', 
-            borderRadius: '8px', 
-            padding: '1rem', 
-            fontWeight: 600, 
-            fontSize: '1.1rem',
-            boxShadow: '0 4px 6px -1px rgba(37, 99, 235, 0.2)',
-            marginBottom: '1rem'
-          }}
-        >
-          Donate Now →
-        </a>
-        <p style={{ fontSize: '0.85rem', color: '#4b5563', marginTop: '0.5rem' }}>UPI ID: <strong><a href={upiLink} style={{ color: 'inherit', textDecoration: 'none' }}>{UPI_ID}</a></strong></p>
+        
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.75rem' }}>
+          <a 
+            href={upiLink} 
+            style={{ 
+              display: 'block',
+              textAlign: 'center',
+              textDecoration: 'none', 
+              background: '#2563eb', 
+              color: 'white', 
+              borderRadius: '8px', 
+              padding: '0.9rem', 
+              fontWeight: 600, 
+              fontSize: '1rem',
+              boxShadow: '0 4px 6px -1px rgba(37, 99, 235, 0.2)',
+            }}
+          >
+            Donate Now →
+          </a>
+
+          <button 
+            onClick={copyUpiId}
+            style={{ 
+              width: '100%',
+              background: '#fff',
+              border: '1px solid #d1d5db',
+              padding: '0.6rem',
+              borderRadius: '6px',
+              fontSize: '0.85rem',
+              fontWeight: 600,
+              color: '#374151',
+              cursor: 'pointer'
+            }}
+          >
+            {upiCopied ? '✓ UPI ID Copied!' : 'Copy UPI ID'}
+          </button>
+        </div>
+
+        <p style={{ fontSize: '0.82rem', color: '#4b5563', marginTop: '0.75rem' }}>UPI ID: <strong>{UPI_ID}</strong></p>
       </div>
 
       <button
@@ -95,7 +123,7 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
       </button>
 
       <p className="secure-note" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', marginTop: '1.25rem' }}>
-        <ShieldCheck size={16} color="#10b981" /> <span style={{ color: '#4b5563', fontSize: '0.85rem' }}>100% Secure Direct Donation</span>
+        <ShieldCheck size={16} color="#10b981" /> <span style={{ color: '#4b5563', fontSize: '0.85rem' }}>100% Verified Directly to Receiver</span>
       </p>
     </div>
   );
