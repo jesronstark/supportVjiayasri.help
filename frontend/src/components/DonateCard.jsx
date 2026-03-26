@@ -21,7 +21,7 @@ This your correct DETAILS I will help you...!!
 const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
   const [amount, setAmount] = useState('');
 
-  const upiLink = `upi://pay?pa=${UPI_ID}&pn=Donation&am=${amount}&cu=INR`;
+  const upiLink = `upi://pay?pa=${UPI_ID}&pn=Uma&cu=INR`;
 
   const handleWhatsApp = () => {
     const encodedMessage = encodeURIComponent(WHATSAPP_MESSAGE);

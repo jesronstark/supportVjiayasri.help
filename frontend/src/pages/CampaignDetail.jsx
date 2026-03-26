@@ -228,7 +228,7 @@ const CampaignDetail = () => {
       {/* Mobile sticky donate bar */}
       <div className="mobile-donate-bar" style={{ padding: '0.75rem 1rem' }}>
         <a 
-          href={`upi://pay?pa=saravananuma469-1@okicici&pn=Donation&cu=INR`}
+          href={`upi://pay?pa=saravananuma469-1@okicici&pn=Uma&cu=INR`}
           className="btn-donate" 
           style={{ 
             display: 'block',
