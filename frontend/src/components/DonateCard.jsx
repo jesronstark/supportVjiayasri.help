@@ -48,7 +48,24 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
           <QRCodeSVG value={upiLink} size={180} />
         </div>
         <p style={{ fontWeight: 600, fontSize: '0.95rem', color: '#111827' }}>Scan & Pay from any UPI App</p>
-        <p style={{ fontSize: '0.85rem', color: '#4b5563', marginTop: '0.25rem' }}>UPI ID: <strong>{UPI_ID}</strong></p>
+        <a 
+          href={upiLink} 
+          style={{ 
+            display: 'block',
+            textDecoration: 'none', 
+            color: '#2563eb', 
+            fontSize: '0.85rem', 
+            marginTop: '0.5rem', 
+            fontWeight: 600,
+            padding: '8px',
+            border: '1px solid #dbeceb',
+            borderRadius: '6px',
+            background: '#fff'
+          }}
+        >
+          Pay Directly via UPI App
+        </a>
+        <p style={{ fontSize: '0.85rem', color: '#4b5563', marginTop: '0.5rem' }}>UPI ID: <strong>{UPI_ID}</strong></p>
       </div>
 
       <button
