@@ -1,0 +1,12 @@
+[dotenv@17.3.1] injecting env (7) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+Server running on port 5000
+C:\Users\JESRON\.gemini\antigravity\scratch\crowdfunding-platform\backend\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:131
+            const err = new MongooseError(message);
+                        ^
+
+MongooseError: Operation `campaigns.countDocuments()` buffering timed out after 10000ms
+    at Timeout._onTimeout (C:\Users\JESRON\.gemini\antigravity\scratch\crowdfunding-platform\backend\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:131:25)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+
+Node.js v22.17.0
