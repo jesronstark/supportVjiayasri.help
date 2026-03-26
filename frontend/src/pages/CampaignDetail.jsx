@@ -225,6 +225,32 @@ const CampaignDetail = () => {
         </div>
       </div>
 
+      {/* Mobile sticky donate bar */}
+      <div className="mobile-donate-bar" style={{ padding: '0.75rem 1rem' }}>
+        <button 
+          className="btn-donate" 
+          style={{ 
+            width: '100%', 
+            background: 'linear-gradient(to right, #ef4444, #dc2626)', 
+            boxShadow: '0 0 15px rgba(239, 68, 68, 0.4)',
+            animation: 'pulse 2s infinite',
+            fontWeight: 700,
+            fontSize: '1rem',
+            padding: '1rem'
+          }} 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+          Donate Now →
+        </button>
+      </div>
+
+      <style>{`
+        @keyframes pulse {
+          0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+          70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+      `}</style>
     </div>
   );
 };
