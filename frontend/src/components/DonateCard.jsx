@@ -52,46 +52,46 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
           href={upiLink} 
           style={{ 
             display: 'block',
+            textAlign: 'center',
             textDecoration: 'none', 
-            color: '#2563eb', 
-            fontSize: '0.85rem', 
-            marginTop: '0.5rem', 
-            fontWeight: 600,
-            padding: '8px',
-            border: '1px solid #dbeceb',
-            borderRadius: '6px',
-            background: '#fff'
+            background: '#2563eb', 
+            color: 'white', 
+            borderRadius: '8px', 
+            padding: '1rem', 
+            fontWeight: 600, 
+            fontSize: '1.1rem',
+            boxShadow: '0 4px 6px -1px rgba(37, 99, 235, 0.2)',
+            marginBottom: '1rem'
           }}
         >
-          Pay Directly via UPI App
+          Donate Now →
         </a>
-        <p style={{ fontSize: '0.85rem', color: '#4b5563', marginTop: '0.5rem' }}>UPI ID: <strong>{UPI_ID}</strong></p>
+        <p style={{ fontSize: '0.85rem', color: '#4b5563', marginTop: '0.5rem' }}>UPI ID: <strong><a href={upiLink} style={{ color: 'inherit', textDecoration: 'none' }}>{UPI_ID}</a></strong></p>
       </div>
 
       <button
         onClick={handleWhatsApp}
         style={{ 
           width: '100%', 
-          background: '#25D366', 
-          color: 'white', 
-          border: 'none', 
+          background: 'transparent', 
+          color: '#25D366', 
+          border: '1px solid #25D366', 
           borderRadius: '8px', 
-          padding: '0.9rem', 
+          padding: '0.8rem', 
           cursor: 'pointer', 
           display: 'flex', 
           alignItems: 'center', 
           justifyContent: 'center', 
           gap: '0.5rem', 
           fontWeight: 600, 
-          fontSize: '1rem',
-          transition: 'background 0.2s ease',
-          boxShadow: '0 4px 6px -1px rgba(37, 211, 102, 0.2)'
+          fontSize: '0.9rem',
+          transition: 'all 0.2s ease',
         }}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-message-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-message-circle">
           <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
         </svg>
-        Help via WhatsApp
+        Share on WhatsApp
       </button>
 
       <p className="secure-note" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', marginTop: '1.25rem' }}>
