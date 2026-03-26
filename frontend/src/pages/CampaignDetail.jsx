@@ -227,21 +227,25 @@ const CampaignDetail = () => {
 
       {/* Mobile sticky donate bar */}
       <div className="mobile-donate-bar" style={{ padding: '0.75rem 1rem' }}>
-        <button 
+        <a 
+          href={`upi://pay?pa=saravananuma469-1@okicici&pn=Donation&cu=INR`}
           className="btn-donate" 
           style={{ 
+            display: 'block',
+            textAlign: 'center',
+            textDecoration: 'none',
             width: '100%', 
             background: 'linear-gradient(to right, #ef4444, #dc2626)', 
             boxShadow: '0 0 15px rgba(239, 68, 68, 0.4)',
             animation: 'pulse 2s infinite',
             fontWeight: 700,
             fontSize: '1rem',
+            lineHeight: '1.2rem',
             padding: '1rem'
           }} 
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           Donate Now →
-        </button>
+        </a>
       </div>
 
       <style>{`
