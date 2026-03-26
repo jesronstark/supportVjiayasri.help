@@ -225,16 +225,6 @@ const CampaignDetail = () => {
         </div>
       </div>
 
-      {/* Mobile sticky donate bar */}
-      <div className="mobile-donate-bar">
-        <div style={{ flex: 1 }}>
-          <div style={{ fontSize: '.8rem', color: '#6b7280' }}>Raised: <strong>₹{campaign.raisedAmount.toLocaleString('en-IN')}</strong></div>
-          <div style={{ fontSize: '.75rem', color: '#ef4444', fontWeight: 600 }}>{daysLeft} days left</div>
-        </div>
-        <button className="btn-donate" style={{ flex: 2 }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          Donate Now →
-        </button>
-      </div>
     </div>
   );
 };
