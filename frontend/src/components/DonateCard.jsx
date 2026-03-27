@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { ShieldCheck } from 'lucide-react';
-import { QRCodeSVG } from 'qrcode.react';
-import { initiateDonation } from '../services/api';
+import qrImg from '../assets/gpay-qr.jpg';
 
-const UPI_ID = '9047371328@okicici';
-const DISPLAY_NUMBER = '9047371328';
 const WHATSAPP_NUMBER = '919047371328';
 const WHATSAPP_MESSAGE = ` "நீங்கள் தரும் ஒவ்வொரு ரூபாயும் என் மகளின் உயிருக்கு ஒரு புதிய வாய்ப்பாகும்."
 
@@ -19,15 +16,9 @@ This your correct DETAILS I will help you...!!
 
 const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
   const [amount, setAmount] = useState('');
-  const [donorName, setDonorName] = useState('');
-  const [mobileNumber, setMobileNumber] = useState('');
-  const [loading, setLoading] = useState(false);
   const [upiCopied, setUpiCopied] = useState(false);
 
-  // Simplified UPI link with exact banking name for better resolution
-  const upiLink = `upi://pay?pa=${UPI_ID}&pn=UMA&cu=INR`;
-  const finalLink = upiLink;
-
+  const DISPLAY_NUMBER = '9047371328';
 
   const copyUpiId = () => {
     navigator.clipboard.writeText(DISPLAY_NUMBER);
@@ -35,33 +26,11 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
     setTimeout(() => setUpiCopied(false), 2000);
   };
 
-  const handleDonate = async (e) => {
+  const handleDonate = (e) => {
     e.preventDefault();
-    if (!amount || amount < 10) return alert('Please enter at least ₹10');
-    if (!donorName) return alert('Please enter your name');
-    if (!mobileNumber || !/^\d{10}$/.test(mobileNumber)) return alert('Please enter a valid 10-digit mobile number');
-
-    try {
-      setLoading(true);
-      const res = await initiateDonation({
-        campaignId: campaign._id,
-        amount: Number(amount),
-        donorName,
-        mobileNumber,
-        message: 'Direct donation from website'
-      });
-
-      if (res.data?.success && res.data?.paymentUrl) {
-        window.location.href = res.data.paymentUrl; // Redirect to GPay/PhonePe gateway
-      } else {
-        alert('Payment initiation failed. Please try again or use QR code.');
-      }
-    } catch (err) {
-      console.error(err);
-      alert('Error connecting to payment server. Please use direct QR code payment.');
-    } finally {
-      setLoading(false);
-    }
+    const text = `I want to donate ${amount ? '₹' + amount : ''} to help Vijaya Sri. Please help me with the payment process.`;
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   const handleWhatsApp = () => {
@@ -73,29 +42,12 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
   return (
     <div className="card donate-card">
       <div className="custom-input-wrap" style={{ marginBottom: '1rem' }}>
-        <input
-          type="text"
-          className="custom-input small"
-          placeholder="Donor Name"
-          value={donorName}
-          onChange={e => setDonorName(e.target.value)}
-          style={{ height: '3rem', fontSize: '0.9rem', padding: '0 0.75rem', marginBottom: '0.75rem' }}
-        />
-        <input
-          type="tel"
-          className="custom-input small"
-          placeholder="Mobile Number (10 digits)"
-          value={mobileNumber}
-          onChange={e => setMobileNumber(e.target.value)}
-          maxLength={10}
-          style={{ height: '3rem', fontSize: '0.9rem', padding: '0 0.75rem', marginBottom: '0.75rem' }}
-        />
         <div style={{ position: 'relative' }}>
           <span className="currency-sym" style={{ top: '50%', transform: 'translateY(-50%)', left: '0.75rem' }}>₹</span>
           <input
             type="number"
             className="custom-input"
-            placeholder="Amount"
+            placeholder="Enter amount to donate"
             value={amount}
             onChange={e => setAmount(e.target.value)}
             min={10}
@@ -104,33 +56,35 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
         </div>
       </div>
 
-      <div style={{ textAlign: 'center', padding: '1.5rem 1rem', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e7eb', marginBottom: '1.5rem' }}>
-        <div style={{ background: '#fff', padding: '1rem', display: 'inline-block', borderRadius: '8px', marginBottom: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-          <QRCodeSVG value={upiLink} size={180} />
+      <div style={{ textAlign: 'center', padding: '1rem', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e7eb', marginBottom: '1.5rem' }}>
+        <div style={{ background: '#fff', padding: '0.5rem', display: 'inline-block', borderRadius: '8px', marginBottom: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+          <img src={qrImg} alt="GPay QR" style={{ width: '200px', height: 'auto', display: 'block' }} />
         </div>
-        <p style={{ fontWeight: 600, fontSize: '0.95rem', color: '#111827' }}>Scan & Pay from any App</p>
+        <p style={{ fontWeight: 600, fontSize: '0.9rem', color: '#111827' }}>Scan with GPay/Any App</p>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.75rem' }}>
           <button 
             onClick={handleDonate}
-            disabled={loading}
             style={{ 
               display: 'block',
               textAlign: 'center',
               textDecoration: 'none', 
-              background: loading ? '#9ca3af' : '#2563eb', 
+              background: '#22c55e', 
               color: 'white', 
               border: 'none',
               borderRadius: '8px', 
               padding: '1rem', 
-              fontWeight: 600, 
-              fontSize: '1rem',
+              fontWeight: 700, 
+              fontSize: '1.1rem',
               width: '100%',
-              cursor: loading ? 'not-allowed' : 'pointer',
-              boxShadow: '0 4px 6px -1px rgba(37, 99, 235, 0.2)',
+              cursor: 'pointer',
+              boxShadow: '0 4px 6px -1px rgba(34, 197, 94, 0.3)',
+              transition: 'transform 0.2s',
             }}
+            onMouseOver={e => e.target.style.transform = 'scale(1.02)'}
+            onMouseOut={e => e.target.style.transform = 'scale(1)'}
           >
-            {loading ? 'Opening GPay...' : 'PROCEED TO PAY →'}
+            DONATE NOW →
           </button>
 
           <button 

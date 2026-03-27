@@ -106,8 +106,10 @@ const CampaignDetail = () => {
   };
 
   const handleSimpleDonate = (e) => {
-    // Reverting to direct link as per user's preference to avoid extra steps
-    window.location.href = 'upi://pay?pa=9047371328@okicici&pn=UMA&cu=INR';
+    e.preventDefault();
+    const text = `I want to help Vijaya Sri. Please help me with the payment process.`;
+    const whatsappUrl = `https://wa.me/919047371328?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   const handleCopy = () => {
@@ -233,31 +235,33 @@ const CampaignDetail = () => {
       {/* Mobile sticky donate bar */}
       <div className="mobile-donate-bar" style={{ padding: '0.75rem 1rem' }}>
         <button 
-          onClick={() => document.querySelector('.sticky-col').scrollIntoView({ behavior: 'smooth' })}
+          onClick={handleSimpleDonate}
           className="btn-donate" 
           style={{ 
             display: 'block',
             textAlign: 'center',
             textDecoration: 'none',
             width: '100%', 
-            background: 'linear-gradient(to right, #ef4444, #dc2626)', 
-            boxShadow: '0 0 15px rgba(239, 68, 68, 0.4)',
-            animation: 'pulse 2s infinite',
+            background: '#22c55e', 
+            boxShadow: '0 0 15px rgba(34, 197, 94, 0.4)',
+            animation: 'pulse-green 2s infinite',
             fontWeight: 700,
             fontSize: '1rem',
             lineHeight: '1.2rem',
-            padding: '1rem'
+            padding: '1rem',
+            border: 'none',
+            color: 'white'
           }} 
         >
-          Pay with GPay Number
+          DONATE NOW ON WHATSAPP
         </button>
       </div>
 
       <style>{`
-        @keyframes pulse {
-          0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
-          70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); }
-          100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        @keyframes pulse-green {
+          0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+          70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
       `}</style>
     </div>
