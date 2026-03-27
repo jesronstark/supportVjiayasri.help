@@ -9,7 +9,7 @@ const DonateCard = () => {
     e.preventDefault();
     const text = `I want to help Save Vijaya Sri. This is your correct account details 
     தொடர்பு எண் - 9047371328
-    Gpay number - 9047371328
+    UPI number - 9047371328
     upi - saravananuma469@okhdfcbank
     Account no. 181100050319439
     IFSC CODE - TMBL0000181 
@@ -18,38 +18,12 @@ const DonateCard = () => {
     window.open(whatsappUrl, '_blank');
   };
 
-  const handleGPay = (e) => {
-    e.preventDefault();
-    const upiId = 'saravananuma469@okhdfcbank';
-    const name = 'Vijaya Sri';
-    const note = 'Donation to Save Vijaya Sri';
-    
-    // Standard UPI URI
-    const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(note)}&cu=INR`;
-    
-    // GPay Android-specific intent to bypass standard app selector if on Android
-    const gpayIntent = `intent://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(note)}&cu=INR#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
-    
-    // Check if user is on mobile
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    
-    if (isMobile) {
-      if (/Android/i.test(navigator.userAgent)) {
-        window.location.href = gpayIntent;
-      } else {
-        window.location.href = upiUrl;
-      }
-    } else {
-      // On desktop, opening WhatsApp or showing a message is better
-      handleDonate(e);
-    }
-  };
 
   return (
     <div className="card donate-card">
       <div style={{ textAlign: 'center', padding: '1rem', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e7eb', marginBottom: '1.5rem' }}>
         <div style={{ background: '#fff', padding: '0.5rem', display: 'inline-block', borderRadius: '8px', marginBottom: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-          <img src={qrImg} alt="GPay QR" style={{ width: '100%', maxWidth: '240px', height: 'auto', display: 'block' }} />
+          <img src={qrImg} alt="UPI QR" style={{ width: '100%', maxWidth: '240px', height: 'auto', display: 'block' }} />
         </div>
         
         <p style={{ fontWeight: 600, fontSize: '0.82rem', color: '#6b7280', marginBottom: '1.25rem' }}>Scan QR to Pay</p>

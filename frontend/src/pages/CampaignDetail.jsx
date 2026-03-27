@@ -101,11 +101,11 @@ const CampaignDetail = () => {
   }, []);
 
   const handleShare = () => {
-    const text = `🙏 Please help save Vijaya Sri's life! She needs urgent kidney transplant surgery.
+    const text = `🙏 Please help save Vijaya Sri's life! She needs urgent liver transplant surgery.
     
     Account Details:
     தொடர்பு எண் - 9047371328
-    Gpay number - 9047371328
+    UPI number - 9047371328
     upi - saravananuma469@okhdfcbank
     Account no. 181100050319439
     IFSC CODE - TMBL0000181
@@ -118,7 +118,7 @@ const CampaignDetail = () => {
     e.preventDefault();
     const text = `I want to help Save Vijaya Sri. This is your correct account details 
     தொடர்பு எண் - 9047371328
-    Gpay number - 9047371328
+    UPI number - 9047371328
     upi - saravananuma469@okhdfcbank
     Account no. 181100050319439
     IFSC CODE - TMBL0000181 
@@ -237,7 +237,7 @@ const CampaignDetail = () => {
                   <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>saravananuma469@okhdfcbank</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0' }}>
-                  <span style={{ color: '#64748b', fontSize: '0.85rem' }}>Contact / GPay</span>
+                  <span style={{ color: '#64748b', fontSize: '0.85rem' }}>UPI / Phone Number</span>
                   <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>9047371328</span>
                 </div>
               </div>
