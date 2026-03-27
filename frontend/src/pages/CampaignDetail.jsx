@@ -232,9 +232,8 @@ const CampaignDetail = () => {
 
       {/* Mobile sticky donate bar */}
       <div className="mobile-donate-bar" style={{ padding: '0.75rem 1rem' }}>
-        <a 
-          href={`upi://pay?pa=9047371328@okicici&pn=UMA&cu=INR`}
-          onClick={handleSimpleDonate}
+        <button 
+          onClick={() => document.querySelector('.sticky-col').scrollIntoView({ behavior: 'smooth' })}
           className="btn-donate" 
           style={{ 
             display: 'block',
@@ -251,7 +250,7 @@ const CampaignDetail = () => {
           }} 
         >
           Pay with GPay Number
-        </a>
+        </button>
       </div>
 
       <style>{`

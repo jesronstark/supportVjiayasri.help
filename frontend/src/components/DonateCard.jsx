@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ShieldCheck } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
+import { initiateDonation } from '../services/api';
 
 const UPI_ID = '9047371328@okicici';
 const DISPLAY_NUMBER = '9047371328';
@@ -18,6 +19,9 @@ This your correct DETAILS I will help you...!!
 
 const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
   const [amount, setAmount] = useState('');
+  const [donorName, setDonorName] = useState('');
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [loading, setLoading] = useState(false);
   const [upiCopied, setUpiCopied] = useState(false);
 
   // Simplified UPI link with exact banking name for better resolution
@@ -31,9 +35,33 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
     setTimeout(() => setUpiCopied(false), 2000);
   };
 
-  const handleDonate = (e) => {
-    // Reverting to direct link as per user's preference to avoid extra steps
-    window.location.href = upiLink;
+  const handleDonate = async (e) => {
+    e.preventDefault();
+    if (!amount || amount < 10) return alert('Please enter at least ₹10');
+    if (!donorName) return alert('Please enter your name');
+    if (!mobileNumber || !/^\d{10}$/.test(mobileNumber)) return alert('Please enter a valid 10-digit mobile number');
+
+    try {
+      setLoading(true);
+      const res = await initiateDonation({
+        campaignId: campaign._id,
+        amount: Number(amount),
+        donorName,
+        mobileNumber,
+        message: 'Direct donation from website'
+      });
+
+      if (res.data?.success && res.data?.paymentUrl) {
+        window.location.href = res.data.paymentUrl; // Redirect to GPay/PhonePe gateway
+      } else {
+        alert('Payment initiation failed. Please try again or use QR code.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Error connecting to payment server. Please use direct QR code payment.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleWhatsApp = () => {
@@ -44,16 +72,36 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
 
   return (
     <div className="card donate-card">
-      <div className="custom-input-wrap" style={{ marginBottom: '1.5rem' }}>
-        <span className="currency-sym">₹</span>
+      <div className="custom-input-wrap" style={{ marginBottom: '1rem' }}>
         <input
-          type="number"
-          className="custom-input"
-          placeholder="Enter the amount to donate"
-          value={amount}
-          onChange={e => setAmount(e.target.value)}
-          min={10}
+          type="text"
+          className="custom-input small"
+          placeholder="Donor Name"
+          value={donorName}
+          onChange={e => setDonorName(e.target.value)}
+          style={{ height: '3rem', fontSize: '0.9rem', padding: '0 0.75rem', marginBottom: '0.75rem' }}
         />
+        <input
+          type="tel"
+          className="custom-input small"
+          placeholder="Mobile Number (10 digits)"
+          value={mobileNumber}
+          onChange={e => setMobileNumber(e.target.value)}
+          maxLength={10}
+          style={{ height: '3rem', fontSize: '0.9rem', padding: '0 0.75rem', marginBottom: '0.75rem' }}
+        />
+        <div style={{ position: 'relative' }}>
+          <span className="currency-sym" style={{ top: '50%', transform: 'translateY(-50%)', left: '0.75rem' }}>₹</span>
+          <input
+            type="number"
+            className="custom-input"
+            placeholder="Amount"
+            value={amount}
+            onChange={e => setAmount(e.target.value)}
+            min={10}
+            style={{ height: '3.5rem', paddingLeft: '2rem' }}
+          />
+        </div>
       </div>
 
       <div style={{ textAlign: 'center', padding: '1.5rem 1rem', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e7eb', marginBottom: '1.5rem' }}>
@@ -63,24 +111,27 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
         <p style={{ fontWeight: 600, fontSize: '0.95rem', color: '#111827' }}>Scan & Pay from any App</p>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.75rem' }}>
-          <a 
-            href={finalLink} 
+          <button 
             onClick={handleDonate}
+            disabled={loading}
             style={{ 
               display: 'block',
               textAlign: 'center',
               textDecoration: 'none', 
-              background: '#2563eb', 
+              background: loading ? '#9ca3af' : '#2563eb', 
               color: 'white', 
+              border: 'none',
               borderRadius: '8px', 
-              padding: '0.9rem', 
+              padding: '1rem', 
               fontWeight: 600, 
               fontSize: '1rem',
+              width: '100%',
+              cursor: loading ? 'not-allowed' : 'pointer',
               boxShadow: '0 4px 6px -1px rgba(37, 99, 235, 0.2)',
             }}
           >
-            Copy Number & Pay →
-          </a>
+            {loading ? 'Opening GPay...' : 'PROCEED TO PAY →'}
+          </button>
 
           <button 
             onClick={copyUpiId}
