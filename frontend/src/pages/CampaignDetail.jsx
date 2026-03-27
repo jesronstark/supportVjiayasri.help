@@ -106,6 +106,7 @@ const CampaignDetail = () => {
     Account Details:
     தொடர்பு எண் - 9047371328
     Gpay number - 9047371328
+    upi - saravananuma469@okhdfcbank
     Account no. 181100050319439
     IFSC CODE - TMBL0000181
 
@@ -118,6 +119,7 @@ const CampaignDetail = () => {
     const text = `I want to help Save Vijaya Sri. This is your correct account details 
     தொடர்பு எண் - 9047371328
     Gpay number - 9047371328
+    upi - saravananuma469@okhdfcbank
     Account no. 181100050319439
     IFSC CODE - TMBL0000181 
     Please send me the Payment QR code for quick donation.`;
