@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { ShieldCheck } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
-const UPI_ID = '9047371328@okicici';
+const UPI_ID = '9047371328@upi';
 const WHATSAPP_NUMBER = '919047371328';
 const WHATSAPP_MESSAGE = ` "நீங்கள் தரும் ஒவ்வொரு ரூபாயும் என் மகளின் உயிருக்கு ஒரு புதிய வாய்ப்பாகும்."
 
 தொடர்பு எண் - 9047371328
-Gpay number - 9047371328.
 Google Pay - 9047371328
 
 This your correct DETAILS I will help you...!!
@@ -20,12 +19,10 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
   const [amount, setAmount] = useState('');
   const [upiCopied, setUpiCopied] = useState(false);
 
-  // Use a GPay-specific intent on Android to bypass the UPI chooser if possible
-  const upiLink = `upi://pay?pa=${UPI_ID}&pn=Uma&tn=Help%20Vijaya%20Sri&cu=INR&mc=0000`;
-  const gpayIntent = `intent://pay?pa=${UPI_ID}&pn=Uma&tn=Help%20Vijaya%20Sri&cu=INR&mc=0000#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
-  
-  // Decide which link to use based on simple user agent check (or just use intent if preference is strictly GPay)
-  const finalLink = /Android/i.test(navigator.userAgent) ? gpayIntent : upiLink;
+  // Simplified UPI link using only the phone number based universal VPA
+  const upiLink = `upi://pay?pa=${UPI_ID}&pn=Uma&cu=INR`;
+  const finalLink = upiLink; // Keeping it simple as requested
+
 
   const copyUpiId = () => {
     navigator.clipboard.writeText(UPI_ID);
