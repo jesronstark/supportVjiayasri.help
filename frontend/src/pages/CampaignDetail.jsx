@@ -78,11 +78,11 @@ const CampaignDetail = () => {
           expiryDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
         });
         setDonors([
-          { donorName: 'Rahul S.', amount: 2000, message: 'Get well soon Vijaya ji!', timestamp: new Date(), paymentStatus: 'SUCCESS' },
-          { donorName: 'Amita M.', amount: 1000, message: 'Praying for you 🙏', timestamp: new Date(Date.now()-3600000), paymentStatus: 'SUCCESS' },
-          { donorName: 'Anonymous', amount: 500, message: 'Stay strong!', timestamp: new Date(Date.now()-7200000), paymentStatus: 'SUCCESS' },
-          { donorName: 'Kiran P.', amount: 5000, message: 'Hope you recover soon', timestamp: new Date(Date.now()-86400000), paymentStatus: 'SUCCESS' },
-          { donorName: 'Sunita K.', amount: 1500, message: 'God bless you and your family', timestamp: new Date(Date.now()-172800000), paymentStatus: 'SUCCESS' },
+          // { donorName: 'Rahul S.', amount: 2000, message: 'Get well soon Vijaya ji!', timestamp: new Date(), paymentStatus: 'SUCCESS' },
+          // { donorName: 'Amita M.', amount: 1000, message: 'Praying for you 🙏', timestamp: new Date(Date.now()-3600000), paymentStatus: 'SUCCESS' },
+          // { donorName: 'Anonymous', amount: 500, message: 'Stay strong!', timestamp: new Date(Date.now()-7200000), paymentStatus: 'SUCCESS' },
+          // { donorName: 'Kiran P.', amount: 5000, message: 'Hope you recover soon', timestamp: new Date(Date.now()-86400000), paymentStatus: 'SUCCESS' },
+          // { donorName: 'Sunita K.', amount: 1500, message: 'God bless you and your family', timestamp: new Date(Date.now()-172800000), paymentStatus: 'SUCCESS' },
         ]);
         setUpdates([
           { date: new Date(Date.now()-86400000), content: 'Medical evaluation complete. Surgery scheduled next week. Thank you for your overwhelming support!' },
