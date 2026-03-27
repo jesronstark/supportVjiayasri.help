@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CampaignDetail from './pages/CampaignDetail';
-import AdminDashboard from './pages/AdminDashboard';
-import SuccessPage from './pages/SuccessPage';
+import CampaignDetail from './pages/CampaignDetail.jsx';
+import AdminDashboard from './pages/AdminDashboard.jsx';
+import SuccessPage from './pages/SuccessPage.jsx';
 import './styles/App.css';
 
 function App() {

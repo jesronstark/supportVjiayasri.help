@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import DOMPurify from 'dompurify';
 import { Heart, Users, Clock, AlertTriangle, Copy, MessageCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import { getCampaign, getDonors, getUpdates, socket } from '../services/api';
-import Navbar from '../components/Navbar';
-import DonateCard from '../components/DonateCard';
-import DonorList from '../components/DonorList';
-import CampaignUpdates from '../components/CampaignUpdates';
+import Navbar from '../components/Navbar.jsx';
+import DonateCard from '../components/DonateCard.jsx';
+import DonorList from '../components/DonorList.jsx';
+import CampaignUpdates from '../components/CampaignUpdates.jsx';
 import '../styles/App.css';
 
 import coverImg from '../assets/vijaya-sri-2.jpg';
