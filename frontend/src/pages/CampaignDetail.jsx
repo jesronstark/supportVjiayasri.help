@@ -228,7 +228,7 @@ const CampaignDetail = () => {
       {/* Mobile sticky donate bar */}
       <div className="mobile-donate-bar" style={{ padding: '0.75rem 1rem' }}>
         <a 
-          href={`upi://pay?pa=9047371328@okicici&pn=Uma&tn=Help%20Vijaya%20Sri&cu=INR&mc=0000`}
+          href={/Android/i.test(navigator.userAgent) ? `intent://pay?pa=9047371328@okicici&pn=Uma&tn=Help%20Vijaya%20Sri&cu=INR&mc=0000#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end` : `upi://pay?pa=9047371328@okicici&pn=Uma&tn=Help%20Vijaya%20Sri&cu=INR`}
           className="btn-donate" 
           style={{ 
             display: 'block',
@@ -244,7 +244,7 @@ const CampaignDetail = () => {
             padding: '1rem'
           }} 
         >
-          Donate Now →
+          Donate with Google Pay →
         </a>
       </div>
 
