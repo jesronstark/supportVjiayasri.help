@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ShieldCheck } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
-const UPI_ID = '9047371328';
+const UPI_ID = '9047371328@okicici';
 const DISPLAY_NUMBER = '9047371328';
 const WHATSAPP_NUMBER = '919047371328';
 const WHATSAPP_MESSAGE = ` "நீங்கள் தரும் ஒவ்வொரு ரூபாயும் என் மகளின் உயிருக்கு ஒரு புதிய வாய்ப்பாகும்."
@@ -20,8 +20,8 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
   const [amount, setAmount] = useState('');
   const [upiCopied, setUpiCopied] = useState(false);
 
-  // Simplified UPI link using only the phone number as requested
-  const upiLink = `upi://pay?pa=${UPI_ID}`;
+  // Simplified UPI link with exact banking name for better resolution
+  const upiLink = `upi://pay?pa=${UPI_ID}&pn=UMA&cu=INR`;
   const finalLink = upiLink;
 
 
@@ -32,9 +32,7 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
   };
 
   const handleDonate = (e) => {
-    e.preventDefault();
-    navigator.clipboard.writeText(DISPLAY_NUMBER);
-    alert(`GPay Number ${DISPLAY_NUMBER} Copied! \n\nPlease PASTE this number into Google Pay or PhonePe to pay directly.`);
+    // Reverting to direct link as per user's preference to avoid extra steps
     window.location.href = upiLink;
   };
 

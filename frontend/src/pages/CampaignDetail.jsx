@@ -106,10 +106,8 @@ const CampaignDetail = () => {
   };
 
   const handleSimpleDonate = (e) => {
-    e.preventDefault();
-    navigator.clipboard.writeText('9047371328');
-    alert('Phone Number 9047371328 Copied! \n\nPlease PASTE this number into Google Pay to complete your donation safely.');
-    window.location.href = 'upi://pay?pa=9047371328';
+    // Reverting to direct link as per user's preference to avoid extra steps
+    window.location.href = 'upi://pay?pa=9047371328@okicici&pn=UMA&cu=INR';
   };
 
   const handleCopy = () => {
@@ -235,7 +233,7 @@ const CampaignDetail = () => {
       {/* Mobile sticky donate bar */}
       <div className="mobile-donate-bar" style={{ padding: '0.75rem 1rem' }}>
         <a 
-          href={`upi://pay?pa=9047371328`}
+          href={`upi://pay?pa=9047371328@okicici&pn=UMA&cu=INR`}
           onClick={handleSimpleDonate}
           className="btn-donate" 
           style={{ 
