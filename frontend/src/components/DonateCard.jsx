@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { ShieldCheck } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
-const UPI_ID = 'saravananuma469-1@okicici';
+const UPI_ID = '9047371328@okicici';
 const WHATSAPP_NUMBER = '919047371328';
 const WHATSAPP_MESSAGE = ` "நீங்கள் தரும் ஒவ்வொரு ரூபாயும் என் மகளின் உயிருக்கு ஒரு புதிய வாய்ப்பாகும்."
 
 தொடர்பு எண் - 9047371328
 Gpay number - 9047371328.
-UPI ID - saravananuma469-1@okicici
+UPI ID - 9047371328@okicici
 Account no. 181100050319439
 IFSC CODE-TMBL0000181
 
@@ -23,7 +23,7 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
   const [upiCopied, setUpiCopied] = useState(false);
 
   // Added transaction note for better authorization/verification by UPI apps
-  const upiLink = `upi://pay?pa=${UPI_ID}&pn=Uma&tn=Help%20Vijaya%20Sri&cu=INR`;
+  const upiLink = `upi://pay?pa=${UPI_ID}&pn=Uma&tn=Help%20Vijaya%20Sri&cu=INR&mc=0000`;
 
   const copyUpiId = () => {
     navigator.clipboard.writeText(UPI_ID);
