@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ShieldCheck } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
-const UPI_ID = 'saravananuma469-1@okicici';
+const UPI_ID = '9047371328';
 const DISPLAY_NUMBER = '9047371328';
 const WHATSAPP_NUMBER = '919047371328';
 const WHATSAPP_MESSAGE = ` "நீங்கள் தரும் ஒவ்வொரு ரூபாயும் என் மகளின் உயிருக்கு ஒரு புதிய வாய்ப்பாகும்."
@@ -20,8 +20,8 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
   const [amount, setAmount] = useState('');
   const [upiCopied, setUpiCopied] = useState(false);
 
-  // Simplified UPI link using the verified VPA
-  const upiLink = `upi://pay?pa=${UPI_ID}&pn=Saravanan%20Uma&cu=INR`;
+  // Simplified UPI link using only the phone number as requested
+  const upiLink = `upi://pay?pa=${UPI_ID}`;
   const finalLink = upiLink;
 
 
