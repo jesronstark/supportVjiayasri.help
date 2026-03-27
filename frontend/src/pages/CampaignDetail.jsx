@@ -107,7 +107,7 @@ const CampaignDetail = () => {
 
   const handleSimpleDonate = (e) => {
     e.preventDefault();
-    const text = `I want to help Vijaya Sri. Please help me with the payment process.`;
+    const text = `I want to help Save Vijaya Sri. Please Send me the Payment Details.`;
     const whatsappUrl = `https://wa.me/919047371328?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -233,35 +233,45 @@ const CampaignDetail = () => {
       </div>
 
       {/* Mobile sticky donate bar */}
-      <div className="mobile-donate-bar" style={{ padding: '0.75rem 1rem' }}>
+      <div className="mobile-donate-bar" style={{ 
+        padding: '0.75rem 1rem',
+        background: 'rgba(255, 255, 255, 0.95)',
+        backdropFilter: 'blur(10px)',
+        borderTop: '1px solid #e5e7eb',
+        boxShadow: '0 -4px 15px rgba(0, 0, 0, 0.05)'
+      }}>
         <button 
           onClick={handleSimpleDonate}
-          className="btn-donate" 
+          className="btn-whatsapp-automation" 
           style={{ 
-            display: 'block',
-            textAlign: 'center',
-            textDecoration: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.75rem',
             width: '100%', 
-            background: '#22c55e', 
-            boxShadow: '0 0 15px rgba(34, 197, 94, 0.4)',
-            animation: 'pulse-green 2s infinite',
-            fontWeight: 700,
-            fontSize: '1rem',
+            background: '#25D366', 
+            borderRadius: '12px',
+            boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)',
+            animation: 'pulse-whatsapp 2s infinite',
+            fontWeight: 800,
+            fontSize: '1.1rem',
             lineHeight: '1.2rem',
             padding: '1rem',
             border: 'none',
-            color: 'white'
+            color: 'white',
+            cursor: 'pointer'
           }} 
         >
-          DONATE NOW ON WHATSAPP
+          <MessageCircle size={22} fill="white" color="#25D366" />
+          <span>HELP VIJAYA SRI ON WHATSAPP</span>
         </button>
       </div>
 
       <style>{`
-        @keyframes pulse-green {
-          0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-          70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
-          100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        @keyframes pulse-whatsapp {
+          0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+          70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
       `}</style>
     </div>

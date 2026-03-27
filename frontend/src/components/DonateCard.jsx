@@ -1,13 +1,13 @@
 import React from 'react';
 import { ShieldCheck, MessageCircle } from 'lucide-react';
-import qrImg from '../assets/gpay-qr.jpg';
+import qrImg from '../assets/gpay_new_qr.png';
 
 const WHATSAPP_NUMBER = '919047371328';
 
 const DonateCard = () => {
   const handleDonate = (e) => {
     e.preventDefault();
-    const text = `I want to donate to help Vijaya Sri. Please help me with the payment process.`;
+    const text = `I want to help Save Vijaya Sri. Please Send me the Payment Details.`;
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -16,10 +16,10 @@ const DonateCard = () => {
     <div className="card donate-card">
       <div style={{ textAlign: 'center', padding: '1rem', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e7eb', marginBottom: '1.5rem' }}>
         <div style={{ background: '#fff', padding: '0.5rem', display: 'inline-block', borderRadius: '8px', marginBottom: '1rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-          <img src={qrImg} alt="GPay QR" style={{ width: '220px', height: 'auto', display: 'block' }} />
+          <img src={qrImg} alt="GPay QR" style={{ width: '100%', maxWidth: '240px', height: 'auto', display: 'block' }} />
         </div>
         
-        <p style={{ fontWeight: 600, fontSize: '1rem', color: '#111827', marginBottom: '1.25rem' }}>Scan with GPay/Any App to Donate</p>
+        <p style={{ fontWeight: 600, fontSize: '0.9rem', color: '#4b5563', marginBottom: '1.25rem' }}>Scan to pay with any UPI app</p>
         
         <button 
           onClick={handleDonate}
@@ -28,29 +28,29 @@ const DonateCard = () => {
             alignItems: 'center',
             justifyContent: 'center',
             gap: '0.75rem',
-            background: '#22c55e', 
+            background: '#25D366', 
             color: 'white', 
             border: 'none',
-            borderRadius: '8px', 
-            padding: '1.1rem', 
+            borderRadius: '10px', 
+            padding: '1rem', 
             fontWeight: 800, 
             fontSize: '1.1rem',
             width: '100%',
             cursor: 'pointer',
-            boxShadow: '0 4px 10px rgba(34, 197, 94, 0.4)',
+            boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)',
             transition: 'transform 0.2s, background 0.2s',
           }}
           onMouseOver={e => {
-            e.currentTarget.style.transform = 'scale(1.02)';
-            e.currentTarget.style.background = '#16a34a';
+            e.currentTarget.style.transform = 'translateY(-2px)';
+            e.currentTarget.style.background = '#22c35e';
           }}
           onMouseOut={e => {
-            e.currentTarget.style.transform = 'scale(1)';
-            e.currentTarget.style.background = '#22c55e';
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.background = '#25D366';
           }}
         >
-          <MessageCircle size={20} />
-          DONATE NOW ON WHATSAPP
+          <MessageCircle size={20} fill="white" color="#25D366" />
+          DONATE VIA WHATSAPP
         </button>
       </div>
 
