@@ -69,20 +69,20 @@ const CampaignDetail = () => {
         // Use mock data if backend is not connected
         setCampaign({
           _id: 'mock1',
-          title: "Help Save Vijaya Sri's Life - Urgent Kidney Transplant",
+          title: "Help Save Vijaya Sri's Life - Urgent Liver Transplant",
           patientName: 'Vijaya Sri',
-          targetAmount: 1500000,
+          targetAmount: 2300000,
           raisedAmount: 487500,
           donorCount: 163,
           isUrgent: true,
           expiryDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
         });
         setDonors([
-          // { donorName: 'Rahul S.', amount: 2000, message: 'Get well soon Vijaya ji!', timestamp: new Date(), paymentStatus: 'SUCCESS' },
-          // { donorName: 'Amita M.', amount: 1000, message: 'Praying for you 🙏', timestamp: new Date(Date.now()-3600000), paymentStatus: 'SUCCESS' },
-          // { donorName: 'Anonymous', amount: 500, message: 'Stay strong!', timestamp: new Date(Date.now()-7200000), paymentStatus: 'SUCCESS' },
-          // { donorName: 'Kiran P.', amount: 5000, message: 'Hope you recover soon', timestamp: new Date(Date.now()-86400000), paymentStatus: 'SUCCESS' },
-          // { donorName: 'Sunita K.', amount: 1500, message: 'God bless you and your family', timestamp: new Date(Date.now()-172800000), paymentStatus: 'SUCCESS' },
+          { donorName: 'Rahul S.', amount: 2000, message: 'Get well soon Vijaya ji!', timestamp: new Date(), paymentStatus: 'SUCCESS' },
+          { donorName: 'Amita M.', amount: 1000, message: 'Praying for you 🙏', timestamp: new Date(Date.now()-3600000), paymentStatus: 'SUCCESS' },
+          { donorName: 'Anonymous', amount: 500, message: 'Stay strong!', timestamp: new Date(Date.now()-7200000), paymentStatus: 'SUCCESS' },
+          { donorName: 'Kiran P.', amount: 5000, message: 'Hope you recover soon', timestamp: new Date(Date.now()-86400000), paymentStatus: 'SUCCESS' },
+          { donorName: 'Sunita K.', amount: 1500, message: 'God bless you and your family', timestamp: new Date(Date.now()-172800000), paymentStatus: 'SUCCESS' },
         ]);
         setUpdates([
           { date: new Date(Date.now()-86400000), content: 'Medical evaluation complete. Surgery scheduled next week. Thank you for your overwhelming support!' },
@@ -210,6 +210,40 @@ const CampaignDetail = () => {
               <button className="read-more-btn" onClick={() => setStoryExpanded(!storyExpanded)}>
                 {storyExpanded ? <><ChevronUp size={14}/> Read Less</> : <><ChevronDown size={14}/> Read Full Story</>}
               </button>
+            </div>
+
+            {/* Bank Details Section */}
+            <div className="card" style={{ border: '2px solid #eef2ff', background: '#f8faff' }}>
+              <div className="section-title" style={{ color: '#111827' }}>🏦 Bank Transfer Details</div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.75rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid #e2e8f0' }}>
+                  <span style={{ color: '#64748b', fontSize: '0.85rem' }}>Account Name</span>
+                  <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>UMAMAHESWARI .S</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid #e2e8f0' }}>
+                  <span style={{ color: '#64748b', fontSize: '0.85rem' }}>Account Number</span>
+                  <span style={{ fontWeight: 800, fontSize: '1rem', color: '#1e40af' }}>181100050319439</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid #e2e8f0' }}>
+                  <span style={{ color: '#64748b', fontSize: '0.85rem' }}>IFSC Code</span>
+                  <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>TMBL0000181</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid #e2e8f0' }}>
+                  <span style={{ color: '#64748b', fontSize: '0.85rem' }}>Bank Name</span>
+                  <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>Tamilnad Mercantile Bank</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid #e2e8f0' }}>
+                  <span style={{ color: '#64748b', fontSize: '0.85rem' }}>UPI ID</span>
+                  <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>saravananuma469@okhdfcbank</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0' }}>
+                  <span style={{ color: '#64748b', fontSize: '0.85rem' }}>Contact / GPay</span>
+                  <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>9047371328</span>
+                </div>
+              </div>
+              <p style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '1rem', fontStyle: 'italic' }}>
+                Note: After making a bank transfer, please share the screenshot on WhatsApp for verification.
+              </p>
             </div>
 
             {/* Updates */}

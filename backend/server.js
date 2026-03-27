@@ -62,13 +62,13 @@ const seedCampaign = async () => {
   const count = await Campaign.countDocuments();
   if (count === 0) {
     const campaign = new Campaign({
-      title: 'Support Vijaya Sri\'s Critical Medical Treatment',
+      title: 'Support Vijaya Sri\'s Urgent Liver Transplant',
       patientName: 'Vijaya Sri',
-      targetAmount: 1500000,
-      raisedAmount: 450000,
-      donorCount: 152,
+      targetAmount: 2300000,
+      raisedAmount: 487500,
+      donorCount: 163,
       coverImage: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-      description: 'Vijaya Sri is fighting a severe medical condition and needs urgent support for surgery...',
+      description: 'Vijaya Sri is fighting a severe medical condition and needs urgent support for liver transplant surgery...',
       isUrgent: true,
       expiryDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000) // 5 days from now
     });

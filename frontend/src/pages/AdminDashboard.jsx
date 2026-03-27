@@ -15,11 +15,13 @@ const AdminDashboard = () => {
         setDonations(dRes.data);
       } catch {
         // Mock fallback
-        setCampaign({ title: "Vijaya Sri Campaign", raisedAmount: 487500, targetAmount: 1500000, donorCount: 163 });
+        setCampaign({ title: "Support Vijaya Sri's Urgent Liver Transplant", raisedAmount: 487500, targetAmount: 2300000, donorCount: 163 });
         setDonations([
           { donorName: 'Rahul S.', amount: 2000, paymentStatus: 'SUCCESS', timestamp: new Date() },
           { donorName: 'Amita M.', amount: 1000, paymentStatus: 'SUCCESS', timestamp: new Date() },
           { donorName: 'Anonymous', amount: 500, paymentStatus: 'PENDING', timestamp: new Date() },
+          { donorName: 'Kiran P.', amount: 5000, paymentStatus: 'SUCCESS', timestamp: new Date(Date.now()-86400000) },
+          { donorName: 'Sunita K.', amount: 1500, paymentStatus: 'SUCCESS', timestamp: new Date(Date.now()-172800000) },
         ]);
       }
     };
