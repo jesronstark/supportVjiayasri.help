@@ -7,13 +7,11 @@ const WHATSAPP_NUMBER = '919047371328';
 const DonateCard = () => {
   const handleDonate = (e) => {
     e.preventDefault();
-    const text = `I want to help Save Vijaya Sri. Please help me with the donation.
-    
-    [ தொடர்பு எண் - 9047371328
-     Gpay number - 9047371328
-     Account no. 181100050319439
-     IFSC CODE - TMBL0000181 ]
-
+    const text = `I want to help Save Vijaya Sri. This is your correct account details 
+    தொடர்பு எண் - 9047371328
+    Gpay number - 9047371328
+    Account no. 181100050319439
+    IFSC CODE - TMBL0000181 
     Please send me the Payment QR code for quick donation.`;
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');

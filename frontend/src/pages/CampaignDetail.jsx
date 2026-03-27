@@ -101,19 +101,25 @@ const CampaignDetail = () => {
   }, []);
 
   const handleShare = () => {
-    const text = `🙏 Please help save Vijaya Sri's life! She needs urgent kidney transplant surgery. Every rupee counts: ${window.location.href}`;
+    const text = `🙏 Please help save Vijaya Sri's life! She needs urgent kidney transplant surgery.
+    
+    Account Details:
+    தொடர்பு எண் - 9047371328
+    Gpay number - 9047371328
+    Account no. 181100050319439
+    IFSC CODE - TMBL0000181
+
+    Click here to see the campaign: ${window.location.href}`;
     window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   const handleSimpleDonate = (e) => {
     e.preventDefault();
-    const text = `I want to help Save Vijaya Sri. Please help me with the donation.
-    
-    [ தொடர்பு எண் - 9047371328
-     Gpay number - 9047371328
-     Account no. 181100050319439
-     IFSC CODE - TMBL0000181 ]
-
+    const text = `I want to help Save Vijaya Sri. This is your correct account details 
+    தொடர்பு எண் - 9047371328
+    Gpay number - 9047371328
+    Account no. 181100050319439
+    IFSC CODE - TMBL0000181 
     Please send me the Payment QR code for quick donation.`;
     const whatsappUrl = `https://wa.me/919047371328?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
