@@ -31,6 +31,13 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
     setTimeout(() => setUpiCopied(false), 2000);
   };
 
+  const handleDonate = (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(DISPLAY_NUMBER);
+    alert(`GPay Number ${DISPLAY_NUMBER} Copied! \n\nPlease PASTE this number into Google Pay or PhonePe to pay directly.`);
+    window.location.href = upiLink;
+  };
+
   const handleWhatsApp = () => {
     const encodedMessage = encodeURIComponent(WHATSAPP_MESSAGE);
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
@@ -60,6 +67,7 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.75rem' }}>
           <a 
             href={finalLink} 
+            onClick={handleDonate}
             style={{ 
               display: 'block',
               textAlign: 'center',
@@ -73,7 +81,7 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
               boxShadow: '0 4px 6px -1px rgba(37, 99, 235, 0.2)',
             }}
           >
-            Donate with Google Pay →
+            Copy Number & Pay →
           </a>
 
           <button 
