@@ -18,17 +18,44 @@ const DonateCard = () => {
     window.open(whatsappUrl, '_blank');
   };
 
+  const handleGPay = (e) => {
+    e.preventDefault();
+    const upiId = 'saravananuma469@okhdfcbank';
+    const name = 'Vijaya Sri';
+    const note = 'Donation to Save Vijaya Sri';
+    
+    // Standard UPI URI
+    const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(note)}&cu=INR`;
+    
+    // GPay Android-specific intent to bypass standard app selector if on Android
+    const gpayIntent = `intent://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(note)}&cu=INR#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
+    
+    // Check if user is on mobile
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      if (/Android/i.test(navigator.userAgent)) {
+        window.location.href = gpayIntent;
+      } else {
+        window.location.href = upiUrl;
+      }
+    } else {
+      // On desktop, opening WhatsApp or showing a message is better
+      handleDonate(e);
+    }
+  };
+
   return (
     <div className="card donate-card">
       <div style={{ textAlign: 'center', padding: '1rem', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e7eb', marginBottom: '1.5rem' }}>
         <div 
-          onClick={handleDonate}
+          onClick={handleGPay}
           style={{ 
             background: '#fff', 
             padding: '0.5rem', 
             display: 'inline-block', 
             borderRadius: '8px', 
-            marginBottom: '1rem', 
+            marginBottom: '0.5rem', 
             boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
             cursor: 'pointer'
           }}
@@ -36,39 +63,57 @@ const DonateCard = () => {
           <img src={qrImg} alt="GPay QR" style={{ width: '100%', maxWidth: '240px', height: 'auto', display: 'block' }} />
         </div>
         
-        <p style={{ fontWeight: 600, fontSize: '0.9rem', color: '#4b5563', marginBottom: '1.25rem' }}>Scan to pay with any UPI app</p>
+        <p style={{ fontWeight: 600, fontSize: '0.82rem', color: '#6b7280', marginBottom: '1.25rem' }}>Scan or Tap QR to Pay</p>
         
-        <button 
-          onClick={handleDonate}
-          style={{ 
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '0.75rem',
-            background: '#25D366', 
-            color: 'white', 
-            border: 'none',
-            borderRadius: '10px', 
-            padding: '1rem', 
-            fontWeight: 800, 
-            fontSize: '1.1rem',
-            width: '100%',
-            cursor: 'pointer',
-            boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)',
-            transition: 'transform 0.2s, background 0.2s',
-          }}
-          onMouseOver={e => {
-            e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.background = '#22c35e';
-          }}
-          onMouseOut={e => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.background = '#25D366';
-          }}
-        >
-          <MessageCircle size={20} fill="white" color="#25D366" />
-          DONATE VIA WHATSAPP
-        </button>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          <button 
+            onClick={handleGPay}
+            style={{ 
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.75rem',
+              background: '#4285F4', // GPay Blue
+              color: 'white', 
+              border: 'none',
+              borderRadius: '10px', 
+              padding: '1rem', 
+              fontWeight: 800, 
+              fontSize: '1.1rem',
+              width: '100%',
+              cursor: 'pointer',
+              boxShadow: '0 4px 12px rgba(66, 133, 244, 0.3)',
+              transition: 'transform 0.2s',
+            }}
+            onMouseOver={e => e.currentTarget.style.transform = 'translateY(-2px)'}
+            onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}
+          >
+            <img src="https://www.gstatic.com/images/branding/product/2x/googleg_standard_color_32dp.png" alt="" style={{ width: '20px' }} />
+            PAY WITH GOOGLE PAY
+          </button>
+
+          <button 
+            onClick={handleDonate}
+            style={{ 
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.6rem',
+              background: 'white', 
+              color: '#128C7E', 
+              border: '1px solid #128C7E',
+              borderRadius: '10px', 
+              padding: '0.75rem', 
+              fontWeight: 700, 
+              fontSize: '0.9rem',
+              width: '100%',
+              cursor: 'pointer',
+            }}
+          >
+            <MessageCircle size={16} />
+            DONATE VIA WHATSAPP
+          </button>
+        </div>
       </div>
 
       <p className="secure-note" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', marginTop: '1.25rem' }}>
