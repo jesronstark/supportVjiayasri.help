@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ShieldCheck } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
-const UPI_ID = '9047371328@upi';
+const UPI_ID = '9047371328@okicici';
 const WHATSAPP_NUMBER = '919047371328';
 const WHATSAPP_MESSAGE = ` "நீங்கள் தரும் ஒவ்வொரு ரூபாயும் என் மகளின் உயிருக்கு ஒரு புதிய வாய்ப்பாகும்."
 
@@ -21,7 +21,7 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
 
   // Simplified UPI link using only the phone number based universal VPA
   const upiLink = `upi://pay?pa=${UPI_ID}&pn=Uma&cu=INR`;
-  const finalLink = upiLink; // Keeping it simple as requested
+  const finalLink = `intent://pay?pa=${UPI_ID}&pn=Uma&cu=INR#Intent;scheme=upi;package=com.google.android.apps.nitas;end`;
 
 
   const copyUpiId = () => {
