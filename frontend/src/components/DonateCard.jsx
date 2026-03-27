@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ShieldCheck } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 
-const UPI_ID = '9047371328@upi';
+const UPI_ID = '9047371328';
 const WHATSAPP_NUMBER = '919047371328';
 const WHATSAPP_MESSAGE = ` "நீங்கள் தரும் ஒவ்வொரு ரூபாயும் என் மகளின் உயிருக்கு ஒரு புதிய வாய்ப்பாகும்."
 
@@ -54,7 +54,7 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
         <div style={{ background: '#fff', padding: '1rem', display: 'inline-block', borderRadius: '8px', marginBottom: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
           <QRCodeSVG value={upiLink} size={180} />
         </div>
-        <p style={{ fontWeight: 600, fontSize: '0.95rem', color: '#111827' }}>Scan & Pay from any UPI App</p>
+        <p style={{ fontWeight: 600, fontSize: '0.95rem', color: '#111827' }}>Scan & Pay from any App</p>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.75rem' }}>
           <a 
@@ -89,11 +89,11 @@ const DonateCard = ({ campaign, progressPercent, daysLeft }) => {
               cursor: 'pointer'
             }}
           >
-            {upiCopied ? '✓ UPI ID Copied!' : 'Copy UPI ID'}
+            {upiCopied ? '✓ ID Copied!' : 'Copy GPay Number'}
           </button>
         </div>
 
-        <p style={{ fontSize: '0.82rem', color: '#4b5563', marginTop: '0.75rem' }}>UPI ID: <strong>{UPI_ID}</strong></p>
+        <p style={{ fontSize: '0.82rem', color: '#4b5563', marginTop: '0.75rem' }}>GPay/PhonePe: <strong>{UPI_ID}</strong></p>
       </div>
 
       <button
