@@ -107,7 +107,14 @@ const CampaignDetail = () => {
 
   const handleSimpleDonate = (e) => {
     e.preventDefault();
-    const text = `I want to help Save Vijaya Sri. Please Send me the Payment Details.`;
+    const text = `I want to help Save Vijaya Sri. Please help me with the donation.
+    
+    [ தொடர்பு எண் - 9047371328
+     Gpay number - 9047371328
+     Account no. 181100050319439
+     IFSC CODE - TMBL0000181 ]
+
+    Please send me the Payment QR code for quick donation.`;
     const whatsappUrl = `https://wa.me/919047371328?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
   };

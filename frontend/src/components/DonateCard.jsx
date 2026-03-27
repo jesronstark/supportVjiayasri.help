@@ -7,7 +7,14 @@ const WHATSAPP_NUMBER = '919047371328';
 const DonateCard = () => {
   const handleDonate = (e) => {
     e.preventDefault();
-    const text = `I want to help Save Vijaya Sri. Please Send me the Payment Details.`;
+    const text = `I want to help Save Vijaya Sri. Please help me with the donation.
+    
+    [ தொடர்பு எண் - 9047371328
+     Gpay number - 9047371328
+     Account no. 181100050319439
+     IFSC CODE - TMBL0000181 ]
+
+    Please send me the Payment QR code for quick donation.`;
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -15,7 +22,18 @@ const DonateCard = () => {
   return (
     <div className="card donate-card">
       <div style={{ textAlign: 'center', padding: '1rem', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e7eb', marginBottom: '1.5rem' }}>
-        <div style={{ background: '#fff', padding: '0.5rem', display: 'inline-block', borderRadius: '8px', marginBottom: '1rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+        <div 
+          onClick={handleDonate}
+          style={{ 
+            background: '#fff', 
+            padding: '0.5rem', 
+            display: 'inline-block', 
+            borderRadius: '8px', 
+            marginBottom: '1rem', 
+            boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+            cursor: 'pointer'
+          }}
+        >
           <img src={qrImg} alt="GPay QR" style={{ width: '100%', maxWidth: '240px', height: 'auto', display: 'block' }} />
         </div>
         
