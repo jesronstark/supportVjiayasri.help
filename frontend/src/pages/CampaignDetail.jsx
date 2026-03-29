@@ -10,15 +10,39 @@ import '../styles/App.css';
 
 import coverImg from '../assets/vijaya-sri-2.jpg';
 import galleryImg1 from '../assets/vijaya-sri-1.jpg';
- 
 import galleryImg3 from '../assets/vijaya-sri-3.jpg';
+import galleryImg4 from '../assets/vijaya-sri-4.jpg';
+import galleryImg5 from '../assets/vijaya-sri-5.jpg';
+
+// Import GPay Transaction Proofs
+import gpay1 from '../assets/gpay_1.jpg';
+import gpay2 from '../assets/gpay_2.jpg';
+import gpay3 from '../assets/gpay_3.jpg';
+import gpay4 from '../assets/gpay_4.jpg';
+import gpay5 from '../assets/gpay_5.jpg';
+import gpay6 from '../assets/gpay_6.jpg';
+import gpay7 from '../assets/gpay_7.jpg';
+import gpay8 from '../assets/gpay_8.jpg';
+import gpay9 from '../assets/gpay_9.jpg';
+import gpay10 from '../assets/gpay_10.jpg';
+
+// Import Medical Proofs
+import med1 from '../assets/medical_1.jpg';
+import med2 from '../assets/medical_2.jpg';
+import med3 from '../assets/medical_3.jpg';
+import med4 from '../assets/medical_4.jpeg';
 
 const COVER_IMG = coverImg;
 const GALLERY = [
   galleryImg1,
- 
   galleryImg3,
+  galleryImg4,
+  galleryImg5,
 ];
+
+const GPAY_TRANS = [gpay1, gpay2, gpay3, gpay4, gpay5, gpay6, gpay7, gpay8, gpay9, gpay10];
+const MEDICAL_PROOFS = [med1, med2, med3, med4];
+
 
 const STORY_HTML = `
 <p>மதிப்பிற்குரிய ஐயா / அம்மா,
@@ -34,6 +58,10 @@ const STORY_HTML = `
 
 உங்கள் உண்மையுடன்,
 உமா.</p>
+
+
+
+
 `;
 
 const CampaignDetail = () => {
@@ -85,9 +113,9 @@ const CampaignDetail = () => {
           // { donorName: 'Sunita K.', amount: 1500, message: 'God bless you and your family', timestamp: new Date(Date.now()-172800000), paymentStatus: 'SUCCESS' },
         ]);
         setUpdates([
-          { date: new Date(Date.now()-86400000), content: 'Medical evaluation complete. Surgery scheduled next week. Thank you for your overwhelming support!' },
-          { date: new Date(Date.now()-259200000), content: 'Campaign launched. We have received initial support from 40 donors in just 24 hours.' },
-          { date: new Date(Date.now()-432000000), content: 'Vijaya Sri admitted to Apollo Hospitals, Hyderabad. Doctors have confirmed the need for immediate surgery.' },
+          { date: new Date(Date.now()-86400000), content: 'Medical evaluation complete. Surgery scheduled next week. Thank you for your overwhelming support!-[மருத்துவப் பரிசோதனை நிறைவடைந்தது. அடுத்த வாரம் அறுவை சிகிச்சை திட்டமிடப்பட்டுள்ளது. உங்களின் அபரிமிதமான ஆதரவுக்கு நன்றி!]' },
+          { date: new Date(Date.now()-259200000), content: 'Campaign launched. We have received initial support from 40 donors in just 24 hours.-[பிரச்சாரம் தொடங்கப்பட்டது. வெறும் 24 மணி நேரத்தில் 40 நன்கொடையாளர்களிடமிருந்து ஆரம்பகட்ட ஆதரவு கிடைத்துள்ளது.]' },
+          { date: new Date(Date.now()-432000000), content: 'Vijaya Sri admitted to Rela Hosipital,chennai. Doctors have confirmed the need for immediate surgery.-[விஜயா ஸ்ரீ சென்னை ரேலா மருத்துவமனையில் அனுமதிக்கப்பட்டுள்ளார். அவருக்கு உடனடியாக அறுவை சிகிச்சை தேவை என்பதை மருத்துவர்கள் உறுதி செய்துள்ளனர்.]' },
         ]);
       }
     };
@@ -150,7 +178,7 @@ const CampaignDetail = () => {
       {/* Urgent Banner */}
       {campaign.isUrgent && (
         <div className="urgent-banner">
-          <span className="ticker">🚨 URGENT — Only {daysLeft} days left to save Vijaya Sri's life. Every donation counts!</span>
+          <span className="ticker">🚨 URGENT — Only  to save Vijaya Sri's life.  This Site is Not use for Personal Money earings Every Single 1rs is Save Vijyasri Life...!!</span>
         </div>
       )}
 
@@ -166,7 +194,7 @@ const CampaignDetail = () => {
             <span className="badge badge-matched">💚 Donations Matched</span>
           </div>
           <h1 className="campaign-title">{campaign.title}</h1>
-          <p className="campaign-subtitle">For <strong>{campaign.patientName}</strong> · Apollo Hospitals, Hyderabad</p>
+          <p className="campaign-subtitle">For <strong>{campaign.patientName}</strong> · Rela Hosipital, chennai</p>
         </div>
 
         <div className="campaign-grid">
@@ -178,7 +206,7 @@ const CampaignDetail = () => {
                 <img src={activeImg} alt="Campaign" className="cover-img" />
                 <div className="cover-overlay">
                   <div className="cover-patient">👩 {campaign.patientName}</div>
-                  <div className="cover-hospital">🏥 Apollo Hospitals, Hyderabad</div>
+                  <div className="cover-hospital">🏥 rela Hospitals, Chennai</div>
                 </div>
               </div>
               <div style={{ padding: '.75rem 1rem' }}>
@@ -208,9 +236,27 @@ const CampaignDetail = () => {
                 <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(storyExpanded ? STORY_HTML : STORY_HTML.substring(0, 280) + '...') }} />
               </div>
               <button className="read-more-btn" onClick={() => setStoryExpanded(!storyExpanded)}>
-                {storyExpanded ? <><ChevronUp size={14}/> Read Less</> : <><ChevronDown size={14}/> Read Full Story</>}
+                {storyExpanded ? <><ChevronUp size={14} /> Read Less</>
+                  : <><ChevronDown size={14} /> Read Full Story</>}
               </button>
             </div>
+
+            {/* Medical Proof */}
+            <div className="card" style={{ padding: '1rem' }}>
+              <div className="section-title" style={{ marginBottom: '0.5rem' }}>
+                <AlertTriangle size={18} color="#2563eb" /> Vijyasri Medical Report..!
+              </div>
+              <div className="marquee-container">
+                <div className="marquee-content" style={{ animationDuration: '30s' }}>
+                  {[...MEDICAL_PROOFS, ...MEDICAL_PROOFS].map((img, i) => (
+                    <div key={i} className="transaction-img-wrap" style={{ flex: '0 0 240px', height: '320px' }}>
+                      <img src={img} alt={`Medical proof ${i + 1}`} className="transaction-img" style={{ objectFit: 'contain', background: '#f9fafb' }} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
 
             {/* Bank Details Section */}
             <div className="card" style={{ border: '2px solid #eef2ff', background: '#f8faff' }}>
@@ -245,6 +291,22 @@ const CampaignDetail = () => {
                 Note: After making a bank transfer, please share the screenshot on WhatsApp for verification.
               </p>
             </div>
+             {/* Transaction Proof */}
+            <div className="card" style={{ padding: '1rem' }}>
+              <div className="section-title" style={{ marginBottom: '0.5rem' }}>
+                <Clock size={18} /> “எங்கள் குழந்தையின் சிகிச்சைக்காக நீங்கள் வழங்கிய நிதி உதவிக்கு எங்கள் குடும்பத்தின் சார்பாக மனமார்ந்த நன்றியை தெரிவித்துக்கொள்கிறோம்.”
+              </div>
+              <div className="marquee-container">
+                <div className="marquee-content">
+                  {/* Duplicate list to create seamless infinite loop */}
+                  {[...GPAY_TRANS, ...GPAY_TRANS].map((img, i) => (
+                    <div key={i} className="transaction-img-wrap">
+                      <img src={img} alt={`Transaction proof ${i + 1}`} className="transaction-img" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
 
             {/* Updates */}
             <div className="card">
@@ -252,11 +314,13 @@ const CampaignDetail = () => {
               <CampaignUpdates updates={updates} />
             </div>
 
+           
+
             {/* Donors */}
-            <div className="card">
+            {/* <div className="card">
               <div className="section-title"><Users size={18} /> Recent Donors</div>
               <DonorList donors={donors} />
-            </div>
+            </div> */}
           </div>
 
           {/* RIGHT COLUMN (sticky) */}

@@ -26,10 +26,11 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
 /* ── LAYOUT ── */
 .container { max-width: 1160px; margin: 0 auto; padding: 0 1rem; }
 .campaign-grid { display: grid; grid-template-columns: 1fr 380px; gap: 2rem; margin-top: 1.5rem; align-items: start; }
+.campaign-grid > * { min-width: 0; } /* CRITICAL: Prevents children from expanding grid */
 .sticky-col { position: sticky; top: 80px; }
 
 /* ── CARD ── */
-.card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); padding: 1.5rem; margin-bottom: 1.25rem; }
+.card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); padding: 1.5rem; margin-bottom: 1.25rem; overflow: hidden; position: relative; } /* Added overflow hidden */
 
 /* ── NAVBAR ── */
 .navbar { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 200; height: 64px; display: flex; align-items: center; }
@@ -79,7 +80,6 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
 .stat-label { font-size: .75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .05em; }
 
 /* ── DONATE CARD ── */
-.donate-card { }
 .preset-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: .5rem; margin: 1rem 0; }
 .preset-btn { border: 2px solid var(--border); background: transparent; padding: .6rem; border-radius: var(--radius-sm); font-weight: 700; font-size: 1rem; cursor: pointer; transition: all .15s; color: var(--text); }
 .preset-btn:hover { border-color: var(--primary); color: var(--primary); }
@@ -137,6 +137,51 @@ textarea.form-input { resize: vertical; min-height: 70px; }
 .donor-amount { margin-left: auto; font-weight: 700; color: var(--green); font-size: .95rem; white-space: nowrap; }
 .new-donor { animation: slideIn .5s ease; }
 @keyframes slideIn { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── TRANSACTION HISTORY (INFINITE SCROLL) ── */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0 1.5rem;
+  background: #fdfdfd;
+  border-radius: var(--radius-sm);
+  position: relative;
+}
+.marquee-content {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: scroll-left 40s linear infinite;
+}
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Scrolls half the width to loop infinitely */
+}
+
+.transaction-img-wrap {
+  flex: 0 0 160px;
+  height: 280px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  transition: transform 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+.transaction-img-wrap:hover {
+  transform: scale(1.05);
+  border-color: var(--primary);
+  z-index: 10;
+}
+.transaction-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 /* ── ADMIN ── */
 .admin-page { min-height: 100vh; background: var(--bg); }
