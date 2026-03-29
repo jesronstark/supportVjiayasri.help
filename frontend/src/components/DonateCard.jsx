@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, MessageCircle } from 'lucide-react';
+import { ShieldCheck, MessageCircle, AlertCircle, ArrowDown } from 'lucide-react';
 import qrImg from '../assets/gpay_new_qr.png';
 
 const WHATSAPP_NUMBER = '919047371328';
@@ -18,6 +18,10 @@ const DonateCard = () => {
     window.open(whatsappUrl, '_blank');
   };
 
+  const scrollToNewQR = () => {
+    const el = document.getElementById('new-qr-section');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <div className="card donate-card">
@@ -26,25 +30,37 @@ const DonateCard = () => {
           <img src={qrImg} alt="UPI QR" style={{ width: '100%', maxWidth: '240px', height: 'auto', display: 'block' }} />
         </div>
         
-        <p style={{ fontWeight: 600, fontSize: '0.82rem', color: '#6b7280', marginBottom: '1.25rem' }}>Scan QR to Pay</p>
+        <p style={{ fontWeight: 600, fontSize: '0.82rem', color: '#6b7280', marginBottom: '0.75rem' }}>Scan QR to Pay</p>
+
+        {/* Limit notice */}
+        <div style={{ background: '#fffbeb', border: '1px solid #fbbf24', borderRadius: '8px', padding: '0.5rem 0.75rem', marginBottom: '0.75rem' }}>
+          <p style={{ fontWeight: 600, fontSize: '0.78rem', color: '#92400e', margin: 0 }}>
+            <AlertCircle size={13} style={{ verticalAlign: 'middle', marginRight: '4px' }} />
+            This QR has reached its daily limit. Use new QR below ↓
+          </p>
+        </div>
+
+        <button 
+          onClick={scrollToNewQR}
+          style={{ 
+            background: '#2563eb', color: 'white', border: 'none', 
+            padding: '0.5rem 1rem', borderRadius: '99px', fontSize: '0.78rem', 
+            fontWeight: 700, cursor: 'pointer', display: 'inline-flex',
+            alignItems: 'center', gap: '0.35rem', marginBottom: '0.75rem'
+          }}
+        >
+          VIEW NEW ACTIVE QR <ArrowDown size={13} />
+        </button>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           <button 
             onClick={handleDonate}
             style={{ 
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.6rem',
-              background: 'white', 
-              color: '#128C7E', 
-              border: '1px solid #128C7E',
-              borderRadius: '10px', 
-              padding: '0.75rem', 
-              fontWeight: 700, 
-              fontSize: '0.9rem',
-              width: '100%',
-              cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              gap: '0.6rem', background: 'white', color: '#128C7E', 
+              border: '1px solid #128C7E', borderRadius: '10px', 
+              padding: '0.75rem', fontWeight: 700, fontSize: '0.9rem',
+              width: '100%', cursor: 'pointer',
             }}
           >
             <MessageCircle size={16} />

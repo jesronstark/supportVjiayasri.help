@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DOMPurify from 'dompurify';
-import { Heart, Users, Clock, AlertTriangle, Copy, MessageCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { Heart, Users, Clock, AlertTriangle, Copy, MessageCircle, ChevronDown, ChevronUp, ShieldCheck } from 'lucide-react';
 import { getCampaign, getDonors, getUpdates, socket } from '../services/api';
 import Navbar from '../components/Navbar.jsx';
 import DonateCard from '../components/DonateCard.jsx';
@@ -13,6 +13,8 @@ import galleryImg1 from '../assets/vijaya-sri-1.jpg';
 import galleryImg3 from '../assets/vijaya-sri-3.jpg';
 import galleryImg4 from '../assets/vijaya-sri-4.jpg';
 import galleryImg5 from '../assets/vijaya-sri-5.jpg';
+
+import rojaRamyaQr from '../assets/roja_ramya_qr.jpg';
 
 // Import GPay Transaction Proofs
 import gpay1 from '../assets/gpay_1.jpg';
@@ -138,6 +140,8 @@ const CampaignDetail = () => {
     Account no. 181100050319439
     IFSC CODE - TMBL0000181
 
+    upi -[ rojaramya626@okhdfcbank ] <----- Click To Pay
+
     Click here to see the campaign: ${window.location.href}`;
     window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
   };
@@ -147,9 +151,11 @@ const CampaignDetail = () => {
     const text = `I want to help Save Vijaya Sri. This is your correct account details 
     தொடர்பு எண் - 9047371328
     UPI number - 9047371328
-    upi - saravananuma469@okhdfcbank
     Account no. 181100050319439
-    IFSC CODE - TMBL0000181 
+    IFSC CODE - TMBL0000181
+
+    upi -[ rojaramya626@okhdfcbank ] <----- Click To Pay
+
     Please send me the Payment QR code for quick donation.`;
     const whatsappUrl = `https://wa.me/919047371328?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
@@ -255,6 +261,20 @@ const CampaignDetail = () => {
                   ))}
                 </div>
               </div>
+            </div>
+
+            {/* New Active QR Section */}
+            <div id="new-qr-section" className="card" style={{ border: '2px solid #2563eb', background: '#eff6ff', textAlign: 'center' }}>
+              <div className="section-title" style={{ color: '#1e40af', justifyContent: 'center' }}>
+                <ShieldCheck size={20} /> ACTIVE PAYMENT QR (Roja Ramya)
+              </div>
+              <p style={{ fontSize: '0.9rem', color: '#1e40af', fontWeight: 600, marginBottom: '1rem' }}>
+                Please use this QR for all new donations. The previous QR has reached its daily limit.
+              </p>
+              <div style={{ background: '#fff', padding: '1rem', display: 'inline-block', borderRadius: '12px', boxShadow: '0 10px 15px -3px rgba(37, 99, 235, 0.2)', marginBottom: '1rem' }}>
+                <img src={rojaRamyaQr} alt="Active UPI QR" style={{ width: '100%', maxWidth: '280px', height: 'auto', display: 'block', borderRadius: '8px' }} />
+              </div>
+              <p style={{ fontWeight: 800, fontSize: '1.1rem', color: '#1e40af' }}>Scan to Donate Now</p>
             </div>
             
 
