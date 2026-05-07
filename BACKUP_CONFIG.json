@@ -1,0 +1,20 @@
+{
+  "whatsapp_number": "919047371328",
+  "backup_date": "2026-05-08",
+  "qr_files": {
+    "primary": "gpay_new_qr_BACKUP.png",
+    "backup": "roja_ramya_BACKUP_qr.jpg"
+  },
+  "upi_ids": {
+    "primary": "saravananuma469@okhdfcbank",
+    "backup": "rojaramya626@okhdfcbank"
+  },
+  "account_details": {
+    "account_name": "UMAMAHESWARI .S",
+    "account_number": "181100050319439",
+    "ifsc": "TMBL0000181",
+    "bank": "Tamilnad Mercantile Bank",
+    "phone": "9047371328"
+  },
+  "notes": "Backup created before QR code replacement and WhatsApp number update to 919629199741"
+}

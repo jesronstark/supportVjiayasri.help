@@ -1,0 +1,47 @@
+========================================================
+BACKUP: Current WhatsApp Message Template
+Source: /frontend/src/components/DonateCard.jsx
+Backup Date: 2026-05-08
+WhatsApp Number: 919047371328
+========================================================
+
+--- DonateCard.jsx handleDonate() message ---
+
+I want to help Save Vijaya Sri. This is your correct account details 
+    தொடர்பு எண் - 9047371328
+    UPI number - 9047371328
+    upi - saravananuma469@okhdfcbank
+    Account no. 181100050319439
+    IFSC CODE - TMBL0000181 
+    Please send me the Payment QR code for quick donation.
+
+--- CampaignDetail.jsx handleShare() message ---
+
+🙏 Please help save Vijaya Sri's life! She needs urgent liver transplant surgery.
+    
+    Account Details:
+    தொடர்பு எண் - 9047371328
+    UPI number - 9047371328
+    upi - saravananuma469@okhdfcbank
+    Account no. 181100050319439
+    IFSC CODE - TMBL0000181
+
+    upi -[ rojaramya626@okhdfcbank ] <----- Click To Pay
+
+    Click here to see the campaign: [window.location.href]
+
+--- CampaignDetail.jsx handleSimpleDonate() message ---
+
+I want to help Save Vijaya Sri. This is your correct account details 
+    தொடர்பு எண் - 9047371328
+    UPI number - 9047371328
+    Account no. 181100050319439
+    IFSC CODE - TMBL0000181
+
+    upi -[ rojaramya626@okhdfcbank ] <----- Click To Pay
+
+    Please send me the Payment QR code for quick donation.
+
+========================================================
+END OF BACKUP
+========================================================
