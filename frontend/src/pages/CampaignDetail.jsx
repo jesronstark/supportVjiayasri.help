@@ -131,33 +131,46 @@ const CampaignDetail = () => {
   }, []);
 
   const handleShare = () => {
-    const text = `🙏 Please help save Vijaya Sri's life! She needs urgent liver transplant surgery.
-    
-    Account Details:
-    தொடர்பு எண் - 9047371328
-    UPI number - 9047371328
-    upi - saravananuma469@okhdfcbank
-    Account no. 181100050319439
-    IFSC CODE - TMBL0000181
+    const text = `🙏 *Help Save 9-Year-Old Vijaya Sri*
 
-    upi -[ rojaramya626@okhdfcbank ] <----- Click To Pay
+*She's just 9 years old. இந்த வயசுல சாவுக்கு நேரம் இல்ல...*
 
-    Click here to see the campaign: ${window.location.href}`;
+Vijaya Sri needs urgent liver transplant. Her parents are struggling to save her.
+
+*Every hour matters. Every rupee counts.*
+
+Payment Details:
+Account Name: UMAMAHESWARI .S
+Account Number: 181100050319439
+IFSC Code: TMBL0000181
+Bank Name: Tamilnad Mercantile Bank
+
+Campaign: ${window.location.href}
+
+*If you cannot donate, please share this with someone who can. A parent's pain knows no language. Help us save her. 💔*`;
     window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   const handleSimpleDonate = (e) => {
     e.preventDefault();
-    const text = `I want to help Save Vijaya Sri. This is your correct account details 
-    தொடர்பு எண் - 9047371328
-    UPI number - 9047371328
-    Account no. 181100050319439
-    IFSC CODE - TMBL0000181
+    const text = `🙏 *Help Save 9-Year-Old Vijaya Sri*
 
-    upi -[ rojaramya626@okhdfcbank ] <----- Click To Pay
+*She's just 9 years old. இந்த வயசுல சாவுக்கு நேரம் இல்ல...*
 
-    Please send me the Payment QR code for quick donation.`;
-    const whatsappUrl = `https://wa.me/919047371328?text=${encodeURIComponent(text)}`;
+Vijaya Sri needs urgent liver transplant. Her parents are struggling to save her.
+
+*Every hour matters. Every rupee counts.*
+
+Payment Details:
+Account Name: UMAMAHESWARI .S
+Account Number: 181100050319439
+IFSC Code: TMBL0000181
+Bank Name: Tamilnad Mercantile Bank
+
+Campaign: https://support-vjiayasri-help-com-1.vercel.app/
+
+*If you cannot donate, please share this with someone who can. A parent's pain knows no language. Help us save her. 💔*`;
+    const whatsappUrl = `https://wa.me/919629199741?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -304,7 +317,7 @@ const CampaignDetail = () => {
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0' }}>
                   <span style={{ color: '#64748b', fontSize: '0.85rem' }}>UPI / Phone Number</span>
-                  <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>9047371328</span>
+                  <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>9629199741</span>
                 </div>
               </div>
               <p style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '1rem', fontStyle: 'italic' }}>

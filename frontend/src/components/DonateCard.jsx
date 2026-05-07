@@ -2,18 +2,28 @@ import React from 'react';
 import { ShieldCheck, MessageCircle, AlertCircle, ArrowDown } from 'lucide-react';
 import qrImg from '../assets/gpay_new_qr.png';
 
-const WHATSAPP_NUMBER = '919047371328';
+const WHATSAPP_NUMBER = '919629199741';
 
 const DonateCard = () => {
   const handleDonate = (e) => {
     e.preventDefault();
-    const text = `I want to help Save Vijaya Sri. This is your correct account details 
-    தொடர்பு எண் - 9047371328
-    UPI number - 9047371328
-    upi - saravananuma469@okhdfcbank
-    Account no. 181100050319439
-    IFSC CODE - TMBL0000181 
-    Please send me the Payment QR code for quick donation.`;
+    const text = `🙏 *Help Save 9-Year-Old Vijaya Sri*
+
+*She's just 9 years old. இந்த வயசுல சாவுக்கு நேரம் இல்ல...*
+
+Vijaya Sri needs urgent liver transplant. Her parents are struggling to save her.
+
+*Every hour matters. Every rupee counts.*
+
+Payment Details:
+Account Name: UMAMAHESWARI .S
+Account Number: 181100050319439
+IFSC Code: TMBL0000181
+Bank Name: Tamilnad Mercantile Bank
+
+Campaign: https://support-vjiayasri-help-com-1.vercel.app/
+
+*If you cannot donate, please share this with someone who can. A parent's pain knows no language. Help us save her. 💔*`;
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
   };
