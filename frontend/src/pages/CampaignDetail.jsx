@@ -139,6 +139,8 @@ Vijaya Sri needs urgent liver transplant. Her parents are struggling to save her
 
 *Every hour matters. Every rupee counts.*
 
+
+
 Payment Details:
 Account Name: UMAMAHESWARI .S
 Account Number: 181100050319439
@@ -146,7 +148,13 @@ IFSC Code: TMBL0000181
 Bank Name: Tamilnad Mercantile Bank
 UPI ID: jesronstark-2@okaxis
 
+
+
+
+
 Campaign: ${window.location.href}
+
+
 
 *If you cannot donate, please share this with someone who can. A parent's pain knows no language. Help us save her. 💔*`;
     window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
