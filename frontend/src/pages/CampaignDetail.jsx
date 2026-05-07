@@ -176,8 +176,19 @@ Account Number: 181100050319439
 IFSC Code: TMBL0000181
 Bank Name: Tamilnad Mercantile Bank
 UPI ID: jesronstark-2@okaxis
+.
 
+
+
+
+
+.
 Campaign: https://support-vjiayasri-help-com-1.vercel.app/
+.
+
+
+
+.
 
 *If you cannot donate, please share this with someone who can. A parent's pain knows no language. Help us save her. 💔*`;
     const whatsappUrl = `https://wa.me/919629199741?text=${encodeURIComponent(text)}`;
