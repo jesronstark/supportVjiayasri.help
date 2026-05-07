@@ -20,6 +20,7 @@ Account Name: UMAMAHESWARI .S
 Account Number: 181100050319439
 IFSC Code: TMBL0000181
 Bank Name: Tamilnad Mercantile Bank
+UPI ID: jesronstark-2@okaxis
 
 Campaign: https://support-vjiayasri-help-com-1.vercel.app/
 

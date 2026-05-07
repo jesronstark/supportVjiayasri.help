@@ -144,6 +144,7 @@ Account Name: UMAMAHESWARI .S
 Account Number: 181100050319439
 IFSC Code: TMBL0000181
 Bank Name: Tamilnad Mercantile Bank
+UPI ID: jesronstark-2@okaxis
 
 Campaign: ${window.location.href}
 
@@ -166,6 +167,7 @@ Account Name: UMAMAHESWARI .S
 Account Number: 181100050319439
 IFSC Code: TMBL0000181
 Bank Name: Tamilnad Mercantile Bank
+UPI ID: jesronstark-2@okaxis
 
 Campaign: https://support-vjiayasri-help-com-1.vercel.app/
 
@@ -313,7 +315,7 @@ Campaign: https://support-vjiayasri-help-com-1.vercel.app/
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid #e2e8f0' }}>
                   <span style={{ color: '#64748b', fontSize: '0.85rem' }}>UPI ID</span>
-                  <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>saravananuma469@okhdfcbank</span>
+                  <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>jesronstark-2@okaxis</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0' }}>
                   <span style={{ color: '#64748b', fontSize: '0.85rem' }}>UPI / Phone Number</span>
