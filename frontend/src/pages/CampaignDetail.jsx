@@ -17,16 +17,16 @@ import galleryImg5 from '../assets/vijaya-sri-5.jpg';
 import rojaRamyaQr from '../assets/roja_ramya_qr.jpg';
 
 // Import GPay Transaction Proofs
-import gpay1 from '../assets/gpay_1.jpg';
-import gpay2 from '../assets/gpay_2.jpg';
-import gpay3 from '../assets/gpay_3.jpg';
-import gpay4 from '../assets/gpay_4.jpg';
-import gpay5 from '../assets/gpay_5.jpg';
-import gpay6 from '../assets/gpay_6.jpg';
-import gpay7 from '../assets/gpay_7.jpg';
-import gpay8 from '../assets/gpay_8.jpg';
-import gpay9 from '../assets/gpay_9.jpg';
-import gpay10 from '../assets/gpay_10.jpg';
+// import gpay1 from '../assets/gpay_1.jpg';
+// import gpay2 from '../assets/gpay_2.jpg';
+// import gpay3 from '../assets/gpay_3.jpg';
+// import gpay4 from '../assets/gpay_4.jpg';
+// import gpay5 from '../assets/gpay_5.jpg';
+// import gpay6 from '../assets/gpay_6.jpg';
+// import gpay7 from '../assets/gpay_7.jpg';
+// import gpay8 from '../assets/gpay_8.jpg';
+// import gpay9 from '../assets/gpay_9.jpg';
+// import gpay10 from '../assets/gpay_10.jpg';
 
 // Import Medical Proofs
 import med1 from '../assets/medical_1.jpg';
@@ -42,7 +42,7 @@ const GALLERY = [
   galleryImg5,
 ];
 
-const GPAY_TRANS = [gpay1, gpay2, gpay3, gpay4, gpay5, gpay6, gpay7, gpay8, gpay9, gpay10];
+// const GPAY_TRANS = [gpay1, gpay2, gpay3, gpay4, gpay5, gpay6, gpay7, gpay8, gpay9, gpay10];
 const MEDICAL_PROOFS = [med1, med2, med3, med4];
 
 
@@ -334,14 +334,15 @@ Campaign: https://support-vjiayasri-help-com-1.vercel.app/
                 Note: After making a bank transfer, please share the screenshot on WhatsApp for verification.
               </p>
             </div>
-             {/* Transaction Proof */}
+            {/* Transaction Proof */}
+            
+            {/* Transaction Proof - Commented out as requested
             <div className="card" style={{ padding: '1rem' }}>
               <div className="section-title" style={{ marginBottom: '0.5rem' }}>
                 <Clock size={18} /> “எங்கள் குழந்தையின் சிகிச்சைக்காக நீங்கள் வழங்கிய நிதி உதவிக்கு எங்கள் குடும்பத்தின் சார்பாக மனமார்ந்த நன்றியை தெரிவித்துக்கொள்கிறோம்.”
               </div>
               <div className="marquee-container">
                 <div className="marquee-content">
-                  {/* Duplicate list to create seamless infinite loop */}
                   {[...GPAY_TRANS, ...GPAY_TRANS].map((img, i) => (
                     <div key={i} className="transaction-img-wrap">
                       <img src={img} alt={`Transaction proof ${i + 1}`} className="transaction-img" />
@@ -350,6 +351,7 @@ Campaign: https://support-vjiayasri-help-com-1.vercel.app/
                 </div>
               </div>
             </div>
+            */}
 
             {/* Updates */}
             <div className="card">
