@@ -1,17 +1,11 @@
 import React from 'react';
-import { CheckCircle, MessageCircle, ArrowLeft } from 'lucide-react';
+import { CheckCircle, ArrowLeft } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
 const SuccessPage = () => {
   const [params] = useSearchParams();
   const txn = params.get('txn') || 'N/A';
-  const url = window.location.origin;
-
-  const handleShare = () => {
-    const text = `🎉 I just donated to help Vijaya Sri get her kidney transplant! Join me in saving her life: ${url}`;
-    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
-  };
 
   return (
     <div className="success-page">
@@ -30,9 +24,6 @@ const SuccessPage = () => {
             "Every small act of kindness has the power to move mountains." — Please share to help us reach more people.
           </p>
           <div style={{ display: 'flex', gap: '.75rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <button className="btn-whatsapp" onClick={handleShare} style={{ padding: '.75rem 1.5rem' }}>
-              <MessageCircle size={18} /> Share on WhatsApp
-            </button>
             <Link to="/">
               <button className="btn-copy" style={{ padding: '.75rem 1.5rem' }}>
                 <ArrowLeft size={18} /> Back to Campaign

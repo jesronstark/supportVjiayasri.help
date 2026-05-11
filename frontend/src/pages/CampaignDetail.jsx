@@ -14,7 +14,7 @@ import galleryImg3 from '../assets/vijaya-sri-3.jpg';
 import galleryImg4 from '../assets/vijaya-sri-4.jpg';
 import galleryImg5 from '../assets/vijaya-sri-5.jpg';
 
-import rojaRamyaQr from '../assets/roja_ramya_qr.jpg';
+// import rojaRamyaQr from '../assets/roja_ramya_qr.jpg';
 
 // Import GPay Transaction Proofs
 // import gpay1 from '../assets/gpay_1.jpg';
@@ -130,70 +130,9 @@ const CampaignDetail = () => {
     return () => socket.off('newDonation');
   }, []);
 
-  const handleShare = () => {
-    const text = `🙏 *Help Save 9-Year-Old Vijaya Sri*
-
-*She's just 9 years old. இந்த வயசுல சாவுக்கு நேரம் இல்ல...*
-
-Vijaya Sri needs urgent liver transplant. Her parents are struggling to save her.
-
-*Every hour matters. Every rupee counts.*
 
 
 
-Payment Details:
-Account Name: UMAMAHESWARI .S
-Account Number: 181100050319439
-IFSC Code: TMBL0000181
-Bank Name: Tamilnad Mercantile Bank
-UPI ID: jesronstark-2@okaxis
-
-
-
-
-
-Campaign: ${window.location.href}
-
-
-
-*If you cannot donate, please share this with someone who can. A parent's pain knows no language. Help us save her. 💔*`;
-    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
-  };
-
-  const handleSimpleDonate = (e) => {
-    e.preventDefault();
-    const text = `🙏 *Help Save 9-Year-Old Vijaya Sri*
-
-*She's just 9 years old. இந்த வயசுல சாவுக்கு நேரம் இல்ல...*
-
-Vijaya Sri needs urgent liver transplant. Her parents are struggling to save her.
-
-*Every hour matters. Every rupee counts.*
-
-Payment Details:
-Account Name: UMAMAHESWARI .S
-Account Number: 181100050319439
-IFSC Code: TMBL0000181
-Bank Name: Tamilnad Mercantile Bank
-UPI ID: jesronstark-2@okaxis
-.
-
-
-
-
-
-.
-Campaign: https://support-vjiayasri-help-com-1.vercel.app/
-.
-
-
-
-.
-
-*If you cannot donate, please share this with someone who can. A parent's pain knows no language. Help us save her. 💔*`;
-    const whatsappUrl = `https://wa.me/919629199741?text=${encodeURIComponent(text)}`;
-    window.open(whatsappUrl, '_blank');
-  };
 
   const handleCopy = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -297,19 +236,7 @@ Campaign: https://support-vjiayasri-help-com-1.vercel.app/
               </div>
             </div>
 
-            {/* New Active QR Section */}
-            <div id="new-qr-section" className="card" style={{ border: '2px solid #2563eb', background: '#eff6ff', textAlign: 'center' }}>
-              <div className="section-title" style={{ color: '#1e40af', justifyContent: 'center' }}>
-                <ShieldCheck size={20} /> ACTIVE PAYMENT QR (Roja Ramya)
-              </div>
-              <p style={{ fontSize: '0.9rem', color: '#1e40af', fontWeight: 600, marginBottom: '1rem' }}>
-                Please use this QR for all new donations. The previous QR has reached its daily limit.
-              </p>
-              <div style={{ background: '#fff', padding: '1rem', display: 'inline-block', borderRadius: '12px', boxShadow: '0 10px 15px -3px rgba(37, 99, 235, 0.2)', marginBottom: '1rem' }}>
-                <img src={rojaRamyaQr} alt="Active UPI QR" style={{ width: '100%', maxWidth: '280px', height: 'auto', display: 'block', borderRadius: '8px' }} />
-              </div>
-              <p style={{ fontWeight: 800, fontSize: '1.1rem', color: '#1e40af' }}>Scan to Donate Now</p>
-            </div>
+
             
 
             {/* Bank Details Section */}
@@ -332,18 +259,7 @@ Campaign: https://support-vjiayasri-help-com-1.vercel.app/
                   <span style={{ color: '#64748b', fontSize: '0.85rem' }}>Bank Name</span>
                   <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>Tamilnad Mercantile Bank</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid #e2e8f0' }}>
-                  <span style={{ color: '#64748b', fontSize: '0.85rem' }}>UPI ID</span>
-                  <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>jesronstark-2@okaxis</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0' }}>
-                  <span style={{ color: '#64748b', fontSize: '0.85rem' }}>UPI / Phone Number</span>
-                  <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>9629199741</span>
-                </div>
               </div>
-              <p style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '1rem', fontStyle: 'italic' }}>
-                Note: After making a bank transfer, please share the screenshot on WhatsApp for verification.
-              </p>
             </div>
             {/* Transaction Proof */}
             
@@ -388,9 +304,7 @@ Campaign: https://support-vjiayasri-help-com-1.vercel.app/
               <h4>💬 Help by sharing</h4>
               <p style={{ fontSize:'.82rem', color:'#6b7280', marginBottom:'.75rem' }}>Sharing is the #1 way to reach the goal faster!</p>
               <div className="share-buttons">
-                <button className="btn-whatsapp" onClick={handleShare}>
-                  <MessageCircle size={16} /> WhatsApp
-                </button>
+
                 <button className="btn-copy" onClick={handleCopy}>
                   <Copy size={16} /> {copied ? 'Copied!' : 'Copy Link'}
                 </button>
@@ -401,48 +315,9 @@ Campaign: https://support-vjiayasri-help-com-1.vercel.app/
         </div>
       </div>
 
-      {/* Mobile sticky donate bar */}
-      <div className="mobile-donate-bar" style={{ 
-        padding: '0.75rem 1rem',
-        background: 'rgba(255, 255, 255, 0.95)',
-        backdropFilter: 'blur(10px)',
-        borderTop: '1px solid #e5e7eb',
-        boxShadow: '0 -4px 15px rgba(0, 0, 0, 0.05)'
-      }}>
-        <button 
-          onClick={handleSimpleDonate}
-          className="btn-whatsapp-automation" 
-          style={{ 
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '0.75rem',
-            width: '100%', 
-            background: '#25D366', 
-            borderRadius: '12px',
-            boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)',
-            animation: 'pulse-whatsapp 2s infinite',
-            fontWeight: 800,
-            fontSize: '1.1rem',
-            lineHeight: '1.2rem',
-            padding: '1rem',
-            border: 'none',
-            color: 'white',
-            cursor: 'pointer'
-          }} 
-        >
-          <MessageCircle size={22} fill="white" color="#25D366" />
-          <span>HELP VIJAYA SRI ON WHATSAPP</span>
-        </button>
-      </div>
 
-      <style>{`
-        @keyframes pulse-whatsapp {
-          0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-          70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-          100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-      `}</style>
+
+
     </div>
   );
 };

@@ -1,84 +1,16 @@
 import React from 'react';
-import { ShieldCheck, MessageCircle, AlertCircle, ArrowDown } from 'lucide-react';
-import qrImg from '../assets/gpay_new_qr.png';
-
-const WHATSAPP_NUMBER = '919629199741';
+import { ShieldCheck } from 'lucide-react';
 
 const DonateCard = () => {
-  const handleDonate = (e) => {
-    e.preventDefault();
-    const text = `🙏 *Help Save 9-Year-Old Vijaya Sri*
-
-*She's just 9 years old. இந்த வயசுல சாவுக்கு நேரம் இல்ல...*
-
-Vijaya Sri needs urgent liver transplant. Her parents are struggling to save her.
-
-*Every hour matters. Every rupee counts.*
-
-Payment Details:
-Account Name: UMAMAHESWARI .S
-Account Number: 181100050319439
-IFSC Code: TMBL0000181
-Bank Name: Tamilnad Mercantile Bank
-UPI ID: jesronstark-2@okaxis
-
-Campaign: https://support-vjiayasri-help-com-1.vercel.app/
-
-*If you cannot donate, please share this with someone who can. A parent's pain knows no language. Help us save her. 💔*`;
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-    window.open(whatsappUrl, '_blank');
-  };
-
-  const scrollToNewQR = () => {
-    const el = document.getElementById('new-qr-section');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className="card donate-card">
       <div style={{ textAlign: 'center', padding: '1rem', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e7eb', marginBottom: '1.5rem' }}>
-        <div style={{ background: '#fff', padding: '0.5rem', display: 'inline-block', borderRadius: '8px', marginBottom: '0.5rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-          <img src={qrImg} alt="UPI QR" style={{ width: '100%', maxWidth: '240px', height: 'auto', display: 'block' }} />
-        </div>
-        
-        <p style={{ fontWeight: 600, fontSize: '0.82rem', color: '#6b7280', marginBottom: '0.75rem' }}>Scan QR to Pay</p>
-
-        {/* Limit notice */}
-        <div style={{ background: '#fffbeb', border: '1px solid #fbbf24', borderRadius: '8px', padding: '0.5rem 0.75rem', marginBottom: '0.75rem' }}>
-          <p style={{ fontWeight: 600, fontSize: '0.78rem', color: '#92400e', margin: 0 }}>
-            <AlertCircle size={13} style={{ verticalAlign: 'middle', marginRight: '4px' }} />
-            This QR has reached its daily limit. Use new QR below ↓
-          </p>
-        </div>
-
-        <button 
-          onClick={scrollToNewQR}
-          style={{ 
-            background: '#2563eb', color: 'white', border: 'none', 
-            padding: '0.5rem 1rem', borderRadius: '99px', fontSize: '0.78rem', 
-            fontWeight: 700, cursor: 'pointer', display: 'inline-flex',
-            alignItems: 'center', gap: '0.35rem', marginBottom: '0.75rem'
-          }}
-        >
-          VIEW NEW ACTIVE QR <ArrowDown size={13} />
-        </button>
-        
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-          <button 
-            onClick={handleDonate}
-            style={{ 
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              gap: '0.6rem', background: 'white', color: '#128C7E', 
-              border: '1px solid #128C7E', borderRadius: '10px', 
-              padding: '0.75rem', fontWeight: 700, fontSize: '0.9rem',
-              width: '100%', cursor: 'pointer',
-            }}
-          >
-            <MessageCircle size={16} />
-            DONATE VIA WHATSAPP
-          </button>
-        </div>
+        <p style={{ fontWeight: 700, fontSize: '1rem', color: '#111827', marginBottom: '1rem' }}>Support Vijaya Sri</p>
+        <p style={{ fontSize: '0.875rem', color: '#4b5563', marginBottom: '1.5rem' }}>
+          Please use the Bank Transfer details provided on the page to make your contribution.
+        </p>
       </div>
+
 
       <p className="secure-note" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', marginTop: '1.25rem' }}>
         <ShieldCheck size={16} color="#10b981" /> <span style={{ color: '#4b5563', fontSize: '0.85rem' }}>100% Verified Directly to Receiver</span>
